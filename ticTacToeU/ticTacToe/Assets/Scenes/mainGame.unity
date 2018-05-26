@@ -326,6 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d194f2805766df4599d509ecb21199e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSide: 0
 --- !u!1 &70799435
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d194f2805766df4599d509ecb21199e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSide: 0
 --- !u!1 &159383830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,6 +1572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d194f2805766df4599d509ecb21199e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSide: 0
 --- !u!1 &436954284
 GameObject:
   m_ObjectHideFlags: 0
@@ -2853,6 +2856,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a5dca3f523923419f1e211c1948b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panel3x3: {fileID: 2045505442}
+  panel4x4: {fileID: 266421378}
   gridButtons3x3:
   - {fileID: 1984324559}
   - {fileID: 139286258}
@@ -4205,6 +4210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d194f2805766df4599d509ecb21199e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSide: 0
 --- !u!1 &1606406564
 GameObject:
   m_ObjectHideFlags: 0
@@ -4423,6 +4429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d194f2805766df4599d509ecb21199e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSide: 0
 --- !u!1 &1667467066
 GameObject:
   m_ObjectHideFlags: 0
@@ -4825,6 +4832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d194f2805766df4599d509ecb21199e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSide: 0
 --- !u!1 &2007753197
 GameObject:
   m_ObjectHideFlags: 0
@@ -5268,6 +5276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d194f2805766df4599d509ecb21199e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSide: 0
 --- !u!1 &2094252757
 GameObject:
   m_ObjectHideFlags: 0
@@ -5412,6 +5421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d194f2805766df4599d509ecb21199e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSide: 0
 --- !u!1 &2112197769
 GameObject:
   m_ObjectHideFlags: 0
@@ -5556,3 +5566,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d194f2805766df4599d509ecb21199e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSide: 0

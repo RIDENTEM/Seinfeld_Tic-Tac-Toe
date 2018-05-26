@@ -11,15 +11,20 @@ public class ticTacTileScript : MonoBehaviour
     private RawImage thisButtonImage;
     bool tileClicked;
     ticTacManager gameManager;
-
+   public ticTacManager.Players playerSide;
     private void Start()
     {
         gameManager = FindObjectOfType<ticTacManager>();
         thisButton = GetComponent<Button>();
         thisButtonImage = GetComponent<RawImage>();
         tileClicked = false;
+        playerSide = ticTacManager.Players.None;
     }
      
+    public ticTacManager.Players getPlayerType()
+    {
+        return playerSide;
+    }
 
     public void onTileClicked()
     {
@@ -35,15 +40,19 @@ public class ticTacTileScript : MonoBehaviour
                     thisButtonImage.texture = gameManager.getHeartImage();
 
 
+                playerSide = ticTacManager.Players.Heart;
                 //set the current player to chip
+               
                 ticTacManager.currentPlayer = ticTacManager.Players.Chip;
             }
             //otherwise if its chip players turn
-            else
+            else if(ticTacManager.currentPlayer == ticTacManager.Players.Chip)
             {
                 //set the tile image to a chip
                 if (gameManager)
                     thisButtonImage.texture = gameManager.getChipImage();
+
+                playerSide = ticTacManager.Players.Chip;
                 //set the current player to heart
                 ticTacManager.currentPlayer = ticTacManager.Players.Heart;
 
