@@ -10,11 +10,17 @@ public class ticTacManager : MonoBehaviour
 
 
     public static bool isNormalGame;
-
+    static public int overallTurnNumber = 1;
 
     private GameObject[,] gridTiles3x3 = new GameObject[3, 3];
     private GameObject[,] gridTiles4x4 = new GameObject[4, 4];
 
+    class PlayerMoves
+    {
+       public Players savedPlayer;
+       public  int[,] tileHit;
+        private int turnNumber = overallTurnNumber;
+    }
 
 
     public enum Players { Heart, Chip, None };
@@ -22,15 +28,18 @@ public class ticTacManager : MonoBehaviour
 
     [SerializeField] private GameObject panel3x3;
     [SerializeField] private GameObject panel4x4;
-    [SerializeField] List<Button> gridButtons3x3;
+    public Button[] gridButtons3x3;
     [SerializeField] List<Button> gridButtons4x4;
     [SerializeField] private Texture heartImage;
     [SerializeField] private Texture chipImage;
     [SerializeField] private Texture defaultImage;
 
+    private List<PlayerMoves> playerMovesToSave;
 
     private void Awake()
     {
+        playerMovesToSave = new List<PlayerMoves>();
+        playerMovesToSave.Capacity = 3;
         currentPlayer = Players.Heart;
         startupDel += populateTilesArray;
         startupDel += typeOfGrid;
@@ -100,6 +109,45 @@ public class ticTacManager : MonoBehaviour
 
 
 
+    }
+    
+
+   public void storeMoves(int tileIndex)
+    {
+        PlayerMoves newPlayerMove = new PlayerMoves();
+        newPlayerMove.savedPlayer = currentPlayer;
+        switch(tileIndex)
+        {
+            case 0:
+                newPlayerMove.tileHit = new int[0, 0];
+                break;
+            case 1:
+                newPlayerMove.tileHit = new int[1, 0];
+                break;
+            case 2:
+                newPlayerMove.tileHit = new int[2, 0];
+                break;
+            case 3:
+                newPlayerMove.tileHit = new int[0, 1];
+                break;
+            case 4:
+                newPlayerMove.tileHit = new int[1, 1];
+                break;
+            case 5:
+                newPlayerMove.tileHit = new int[2, 1];
+                break;
+            case 6:
+                newPlayerMove.tileHit = new int[0, 2];
+                break;
+            case 7:
+                newPlayerMove.tileHit = new int[1, 2];
+                break;
+            case 8:
+                newPlayerMove.tileHit = new int[2, 2];
+                break;
+        }
+        
+        playerMovesToSave.Add(newPlayerMove);
     }
 
     public void checkForWin()
