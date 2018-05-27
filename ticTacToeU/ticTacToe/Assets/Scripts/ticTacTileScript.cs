@@ -42,6 +42,10 @@ public class ticTacTileScript : MonoBehaviour
                 playerSide = ticTacManager.Players.Heart;
                 //function to store moves whenever a tile is hit, also finds the index of the current tile in the tiles array
                 gameManager.storeMoves(System.Array.IndexOf(gameManager.gridButtons3x3, gameObject.GetComponent<Button>()));
+
+                //check for win here instead whenever a spot is clicked 
+                //This will prevent the current player from switching if its the last move in the game before someone wins
+                gameManager.checkForWin();
                 //set the current player to chip
                 ticTacManager.currentPlayer = ticTacManager.Players.Chip;
             }
