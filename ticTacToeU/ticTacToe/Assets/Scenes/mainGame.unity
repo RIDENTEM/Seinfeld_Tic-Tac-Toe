@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -77,18 +77,15 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFilterTypeDirect: 0
-    m_PVRFilterTypeIndirect: 0
-    m_PVRFilterTypeAO: 0
+    m_PVRFiltering: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
-    m_PVRFilteringAtrousPositionSigmaIndirect: 2
-    m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
+    m_PVRFilteringAtrousColorSigma: 1
+    m_PVRFilteringAtrousNormalSigma: 1
+    m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -110,8 +107,6 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-    debug:
-      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &45524302
 GameObject:
@@ -256,7 +251,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: b9c0d141db682684187746699f1848a5, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: b9c0d141db682684187746699f1848a5, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -273,8 +269,9 @@ GameObject:
   - component: {fileID: 47637457}
   - component: {fileID: 47637459}
   - component: {fileID: 47637456}
+  - component: {fileID: 47637460}
   m_Layer: 5
-  m_Name: tile1x3 (3)
+  m_Name: tile4x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -394,6 +391,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
+--- !u!111 &47637460
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 47637454}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 5d9a6acda59c09e489b7b4c0fb59c57d, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 5d9a6acda59c09e489b7b4c0fb59c57d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &49042826
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,8 +418,9 @@ GameObject:
   - component: {fileID: 49042829}
   - component: {fileID: 49042831}
   - component: {fileID: 49042828}
+  - component: {fileID: 49042832}
   m_Layer: 5
-  m_Name: tile1x4 (3)
+  m_Name: tile4x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -527,6 +540,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
+--- !u!111 &49042832
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 49042826}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 13c6f1d48e1153544a2862ca4936b2c6, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 13c6f1d48e1153544a2862ca4936b2c6, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &74967781
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,7 +828,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: ec0499af359ecab4fa68108384a6cd61, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: ec0499af359ecab4fa68108384a6cd61, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -817,8 +846,9 @@ GameObject:
   - component: {fileID: 158256405}
   - component: {fileID: 158256407}
   - component: {fileID: 158256404}
+  - component: {fileID: 158256408}
   m_Layer: 5
-  m_Name: tile1x1 (3)
+  m_Name: tile4x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -938,6 +968,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
+--- !u!111 &158256408
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 158256402}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 459fe7b98ddf8b1439393ac23dff8641, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 459fe7b98ddf8b1439393ac23dff8641, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &162155671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,8 +1197,9 @@ GameObject:
   - component: {fileID: 236832399}
   - component: {fileID: 236832401}
   - component: {fileID: 236832398}
+  - component: {fileID: 236832402}
   m_Layer: 5
-  m_Name: tile1x2 (3)
+  m_Name: tile4x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1273,6 +1319,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
+--- !u!111 &236832402
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 236832396}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 53da1faaefb321441b87dddcc950d44c, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 53da1faaefb321441b87dddcc950d44c, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &238203850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,7 +1350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &238203851
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1444,7 +1505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &266421379
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1530,6 +1591,7 @@ GameObject:
   - component: {fileID: 306885421}
   - component: {fileID: 306885424}
   - component: {fileID: 306885422}
+  - component: {fileID: 306885425}
   m_Layer: 5
   m_Name: tile1x3
   m_TagString: Untagged
@@ -1651,6 +1713,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
+--- !u!111 &306885425
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 306885419}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: bcb8b90525d963242b51df6fb6fd43ae, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: bcb8b90525d963242b51df6fb6fd43ae, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &344922486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1934,7 +2011,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 327a41bfe0b13ba4eb1b0b4b492e5087, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: 327a41bfe0b13ba4eb1b0b4b492e5087, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -2019,6 +2097,7 @@ GameObject:
   - component: {fileID: 453075368}
   - component: {fileID: 453075371}
   - component: {fileID: 453075369}
+  - component: {fileID: 453075372}
   m_Layer: 5
   m_Name: tile1x2
   m_TagString: Untagged
@@ -2140,6 +2219,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
+--- !u!111 &453075372
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 453075366}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 3a5c11cf2e00b4a4db53e46be931e5bf, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 3a5c11cf2e00b4a4db53e46be931e5bf, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &468962489
 GameObject:
   m_ObjectHideFlags: 0
@@ -2217,8 +2311,9 @@ GameObject:
   - component: {fileID: 470989852}
   - component: {fileID: 470989854}
   - component: {fileID: 470989851}
+  - component: {fileID: 470989855}
   m_Layer: 5
-  m_Name: tile1x3 (1)
+  m_Name: tile2x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2338,6 +2433,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
+--- !u!111 &470989855
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 470989849}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: ec3488c76026a254dbff9a4cdd541a5f, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: ec3488c76026a254dbff9a4cdd541a5f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &532204695
 GameObject:
   m_ObjectHideFlags: 0
@@ -2418,8 +2528,9 @@ GameObject:
   - component: {fileID: 691593807}
   - component: {fileID: 691593809}
   - component: {fileID: 691593806}
+  - component: {fileID: 691593810}
   m_Layer: 5
-  m_Name: tile1x1 (1)
+  m_Name: tile2x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2539,6 +2650,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
+--- !u!111 &691593810
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 691593804}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0d7ecbfdbc8769c43b910911d43380e4, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 0d7ecbfdbc8769c43b910911d43380e4, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &713970944
 GameObject:
   m_ObjectHideFlags: 0
@@ -2776,11 +2902,11 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
 --- !u!4 &818792669
 Transform:
   m_ObjectHideFlags: 0
@@ -3112,8 +3238,9 @@ GameObject:
   - component: {fileID: 1014651755}
   - component: {fileID: 1014651757}
   - component: {fileID: 1014651754}
+  - component: {fileID: 1014651758}
   m_Layer: 5
-  m_Name: tile1x2 (2)
+  m_Name: tile3x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3233,6 +3360,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
+--- !u!111 &1014651758
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1014651752}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: f14f8af6e41235a4fa44d52d40567e99, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: f14f8af6e41235a4fa44d52d40567e99, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1106776174
 GameObject:
   m_ObjectHideFlags: 0
@@ -3245,6 +3387,7 @@ GameObject:
   - component: {fileID: 1106776176}
   - component: {fileID: 1106776179}
   - component: {fileID: 1106776177}
+  - component: {fileID: 1106776180}
   m_Layer: 5
   m_Name: tile1x4
   m_TagString: Untagged
@@ -3366,6 +3509,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
+--- !u!111 &1106776180
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106776174}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: eebf6437bbcfcf647b6dce75446d10ac, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: eebf6437bbcfcf647b6dce75446d10ac, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1132660648
 GameObject:
   m_ObjectHideFlags: 0
@@ -3378,8 +3536,9 @@ GameObject:
   - component: {fileID: 1132660651}
   - component: {fileID: 1132660653}
   - component: {fileID: 1132660650}
+  - component: {fileID: 1132660654}
   m_Layer: 5
-  m_Name: tile1x1 (2)
+  m_Name: tile3x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3499,6 +3658,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
+--- !u!111 &1132660654
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1132660648}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 1402e5087710aa84aa1865a2b8af075f, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 1402e5087710aa84aa1865a2b8af075f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1182633739
 GameObject:
   m_ObjectHideFlags: 0
@@ -3728,6 +3902,7 @@ GameObject:
   - component: {fileID: 1318336744}
   - component: {fileID: 1318336747}
   - component: {fileID: 1318336745}
+  - component: {fileID: 1318336748}
   m_Layer: 5
   m_Name: tile1x1
   m_TagString: Untagged
@@ -3849,6 +4024,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
+--- !u!111 &1318336748
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1318336742}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 84962ea899a5c6f47b77c3bae3e11f10, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 84962ea899a5c6f47b77c3bae3e11f10, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1386201004
 GameObject:
   m_ObjectHideFlags: 0
@@ -3935,8 +4125,9 @@ GameObject:
   - component: {fileID: 1555288023}
   - component: {fileID: 1555288025}
   - component: {fileID: 1555288022}
+  - component: {fileID: 1555288026}
   m_Layer: 5
-  m_Name: tile1x3 (2)
+  m_Name: tile3x3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4056,6 +4247,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
+--- !u!111 &1555288026
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1555288020}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: e7b58112422c67a45912dee0b42e91ba, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: e7b58112422c67a45912dee0b42e91ba, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1563520004
 GameObject:
   m_ObjectHideFlags: 0
@@ -4199,7 +4405,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: a38835eaffacda14e8a1a87fc7e33cd2, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: a38835eaffacda14e8a1a87fc7e33cd2, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -4216,8 +4423,9 @@ GameObject:
   - component: {fileID: 1587348852}
   - component: {fileID: 1587348854}
   - component: {fileID: 1587348851}
+  - component: {fileID: 1587348855}
   m_Layer: 5
-  m_Name: tile1x4 (1)
+  m_Name: tile2x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4337,6 +4545,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
+--- !u!111 &1587348855
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1587348849}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 39de02ba2518c0945b322bbcccbeb2c3, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 39de02ba2518c0945b322bbcccbeb2c3, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1625901871
 GameObject:
   m_ObjectHideFlags: 0
@@ -4480,7 +4703,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 3c6edb72882bc0946af951a3d43ea947, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: 3c6edb72882bc0946af951a3d43ea947, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -4633,8 +4857,9 @@ GameObject:
   - component: {fileID: 1775147443}
   - component: {fileID: 1775147445}
   - component: {fileID: 1775147442}
+  - component: {fileID: 1775147446}
   m_Layer: 5
-  m_Name: tile1x4 (2)
+  m_Name: tile3x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4754,6 +4979,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
+--- !u!111 &1775147446
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1775147440}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: ecebc5a3439cf554d904ac3e03876cbd, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: ecebc5a3439cf554d904ac3e03876cbd, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1918703080
 GameObject:
   m_ObjectHideFlags: 0
@@ -4766,8 +5006,9 @@ GameObject:
   - component: {fileID: 1918703083}
   - component: {fileID: 1918703085}
   - component: {fileID: 1918703082}
+  - component: {fileID: 1918703086}
   m_Layer: 5
-  m_Name: tile1x2 (1)
+  m_Name: tile2x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4887,6 +5128,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
+--- !u!111 &1918703086
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1918703080}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: e775c7f5b9827a34ba9985fa83ce18ed, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: e775c7f5b9827a34ba9985fa83ce18ed, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1983134551
 GameObject:
   m_ObjectHideFlags: 0
@@ -5098,7 +5354,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 0a4982a9378d97e4bb123570c5bfc1ff, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: 0a4982a9378d97e4bb123570c5bfc1ff, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -5246,7 +5503,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 3335f31011b89e94394abea29a5e6e9f, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: 3335f31011b89e94394abea29a5e6e9f, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -5394,7 +5652,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 2ee7d03105f0b8f4cb56da96119e862e, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: 2ee7d03105f0b8f4cb56da96119e862e, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -5542,7 +5801,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: d6d5cc7db4e28fd468fa45d1fa7f5710, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: d6d5cc7db4e28fd468fa45d1fa7f5710, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
