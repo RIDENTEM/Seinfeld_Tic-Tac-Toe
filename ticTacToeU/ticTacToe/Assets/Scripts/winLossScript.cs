@@ -14,6 +14,7 @@ public class winLossScript : MonoBehaviour
 
     public void gameWon()
     {
+		ticTacManager.overallTurnNumber = 0;
         ticTacManager.gameWon = true;
         winLossPanel.SetActive(true);
         playerTurnText.gameObject.SetActive(false);
@@ -28,6 +29,8 @@ public class winLossScript : MonoBehaviour
     }
     public void gameTied()
     {
+		ticTacManager.overallTurnNumber = 0;
+
         playerTurnText.gameObject.SetActive(false);
         tieText.gameObject.SetActive(true);
         tieText.text = "Nobody won!";

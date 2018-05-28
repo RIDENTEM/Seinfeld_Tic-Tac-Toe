@@ -42,15 +42,16 @@ public class ticTacManager : MonoBehaviour
     private List<PlayerMoves> playerMovesToSave;
     private winLossScript winLossObject;
 
-    private void Awake()
+    private void Start()
     {
+		
         gameWon = false;
         winLossObject = FindObjectOfType<winLossScript>();
         playerMovesToSave = new List<PlayerMoves>();
         playerMovesToSave.Capacity = 3;
-        currentPlayer = Players.Heart;
-        startupDel += populateTilesArray;
-        startupDel += typeOfGrid;
+        currentPlayer = Players.Heart; 
+		populateTilesArray ();
+		typeOfGrid ();
         startupDel += displayPlayerTurn;
         if (startupDel != null)
             startupDel();
@@ -74,6 +75,8 @@ public class ticTacManager : MonoBehaviour
     {
         playerTurnText.text = "It's " + currentPlayer + "'s Turn!";
     }
+
+
 
     void populateTilesArray()
     {
@@ -495,7 +498,8 @@ public class ticTacManager : MonoBehaviour
             }
             #endregion
 
-
+			if (overallTurnNumber >= 16 && gameWon == false)
+				winLossObject.gameTied();
         }
 
     }
@@ -508,9 +512,7 @@ public class ticTacManager : MonoBehaviour
     }
 
     private void OnDisable()
-    {
-        startupDel -= populateTilesArray;
-        startupDel -= typeOfGrid;
+    { 
         startupDel -= displayPlayerTurn;
     }
 
