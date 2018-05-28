@@ -32,6 +32,7 @@ public class ticTacTileScript : MonoBehaviour
 
         if (!tileClicked)
         {
+			GetComponent<Animation> ().Play ();
             //if its player hearts turn and they press a tile
             if (ticTacManager.currentPlayer == ticTacManager.Players.Heart)
             {
