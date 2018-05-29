@@ -11,10 +11,12 @@ public class ticTacTileScript : MonoBehaviour
     private RawImage thisButtonImage;
     bool tileClicked;
     ticTacManager gameManager;
+	characterSounds characterSoundObject;
     public ticTacManager.Players playerSide;
     private void Start()
     {
         gameManager = FindObjectOfType<ticTacManager>();
+		characterSoundObject = FindObjectOfType<characterSounds> ();
         thisButton = GetComponent<Button>();
         thisButtonImage = GetComponent<RawImage>();
         tileClicked = false;
@@ -32,6 +34,7 @@ public class ticTacTileScript : MonoBehaviour
 
         if (!tileClicked)
         {
+			//Play in/out animation to make it look nice
 			GetComponent<Animation> ().Play ();
             //if its player hearts turn and they press a tile
             if (ticTacManager.currentPlayer == ticTacManager.Players.Heart)

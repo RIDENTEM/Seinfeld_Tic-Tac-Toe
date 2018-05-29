@@ -28,7 +28,7 @@ public class ticTacManager : MonoBehaviour
 
 
 
-    public enum Players { Heart, Chip, None };
+    public enum Players { Heart, Chip, None, Jerry, Kramer, George, Elaine, Newman };
     public static Players currentPlayer;
 
     [SerializeField] private GameObject panel3x3;
@@ -56,6 +56,8 @@ public class ticTacManager : MonoBehaviour
         if (startupDel != null)
             startupDel();
     }
+
+
 
     void typeOfGrid()
     {
