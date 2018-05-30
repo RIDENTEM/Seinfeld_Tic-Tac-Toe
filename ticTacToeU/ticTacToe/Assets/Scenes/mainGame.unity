@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 45524305}
   - component: {fileID: 45524307}
   - component: {fileID: 45524308}
+  - component: {fileID: 45524309}
   m_Layer: 5
   m_Name: tile1x2
   m_TagString: Untagged
@@ -262,6 +263,23 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!95 &45524309
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 45524302}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: afe2b0909480c834880a14386b7cfb38, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &47637454
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +721,7 @@ GameObject:
   - component: {fileID: 139286259}
   - component: {fileID: 139286261}
   - component: {fileID: 139286262}
+  - component: {fileID: 139286263}
   m_Layer: 5
   m_Name: tile2x1
   m_TagString: Untagged
@@ -839,6 +858,23 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!95 &139286263
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 139286256}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d7d2c4cff21f9847bd85eecc1358533, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &158256402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,7 +1391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &238203851
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1510,7 +1546,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &266421379
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1967,6 +2003,7 @@ GameObject:
   - component: {fileID: 385626820}
   - component: {fileID: 385626822}
   - component: {fileID: 385626823}
+  - component: {fileID: 385626824}
   m_Layer: 5
   m_Name: tile3x3
   m_TagString: Untagged
@@ -2103,6 +2140,23 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!95 &385626824
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 385626817}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 637ae8aada57279499946debf91c9184, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &449269427
 GameObject:
   m_ObjectHideFlags: 0
@@ -3016,6 +3070,8 @@ GameObject:
   - component: {fileID: 827251883}
   - component: {fileID: 827251884}
   - component: {fileID: 827251885}
+  - component: {fileID: 827251887}
+  - component: {fileID: 827251886}
   m_Layer: 0
   m_Name: gameManager
   m_TagString: Untagged
@@ -3094,6 +3150,103 @@ MonoBehaviour:
   tieText: {fileID: 1386201006}
   playerTurnText: {fileID: 1295122079}
   winLossPanel: {fileID: 344922486}
+--- !u!82 &827251886
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 827251882}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 81
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &827251887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 827251882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14a75035b9f5a44a982eedade0f8f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jerrySounds: []
+  georgeSounds: []
+  elaineSounds: []
+  kramerSounds: []
+  newmanSounds: []
+  globalAudioSource: {fileID: 827251886}
 --- !u!1 &938302684
 GameObject:
   m_ObjectHideFlags: 0
@@ -4346,6 +4499,7 @@ GameObject:
   - component: {fileID: 1563520007}
   - component: {fileID: 1563520009}
   - component: {fileID: 1563520010}
+  - component: {fileID: 1563520011}
   m_Layer: 5
   m_Name: tile3x1
   m_TagString: Untagged
@@ -4482,6 +4636,23 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!95 &1563520011
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1563520004}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2bda404675d996418e3994d2ca859c2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1587348849
 GameObject:
   m_ObjectHideFlags: 0
@@ -4644,6 +4815,7 @@ GameObject:
   - component: {fileID: 1625901874}
   - component: {fileID: 1625901876}
   - component: {fileID: 1625901877}
+  - component: {fileID: 1625901878}
   m_Layer: 5
   m_Name: tile2x2
   m_TagString: Untagged
@@ -4780,6 +4952,23 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!95 &1625901878
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1625901871}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ebd5a4dbbfad6943bc321588a1ccf55, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1651459379
 GameObject:
   m_ObjectHideFlags: 0
@@ -5294,6 +5483,7 @@ GameObject:
   - component: {fileID: 1984324559}
   - component: {fileID: 1984324560}
   - component: {fileID: 1984324562}
+  - component: {fileID: 1984324564}
   - component: {fileID: 1984324563}
   m_Layer: 5
   m_Name: tile1x1
@@ -5314,7 +5504,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 238203851}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.6760748}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 104, y: -98}
@@ -5416,7 +5606,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
---- !u!111 &1984324563
+--- !u!95 &1984324563
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1984324557}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cef0197c823c33846887850ace3d9d04, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!111 &1984324564
 Animation:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -5444,6 +5651,7 @@ GameObject:
   - component: {fileID: 2088826145}
   - component: {fileID: 2088826147}
   - component: {fileID: 2088826148}
+  - component: {fileID: 2088826149}
   m_Layer: 5
   m_Name: tile2x3
   m_TagString: Untagged
@@ -5580,6 +5788,23 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!95 &2088826149
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2088826142}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b16038f29c452b4bb60955f02a60f20, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2094252757
 GameObject:
   m_ObjectHideFlags: 0
@@ -5593,6 +5818,7 @@ GameObject:
   - component: {fileID: 2094252760}
   - component: {fileID: 2094252762}
   - component: {fileID: 2094252763}
+  - component: {fileID: 2094252764}
   m_Layer: 5
   m_Name: tile1x3
   m_TagString: Untagged
@@ -5729,6 +5955,23 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!95 &2094252764
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2094252757}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a80a4a7615d0ed42a0d03003cfa58be, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2112197769
 GameObject:
   m_ObjectHideFlags: 0
@@ -5742,6 +5985,7 @@ GameObject:
   - component: {fileID: 2112197772}
   - component: {fileID: 2112197774}
   - component: {fileID: 2112197775}
+  - component: {fileID: 2112197776}
   m_Layer: 5
   m_Name: tile3x2
   m_TagString: Untagged
@@ -5878,3 +6122,20 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!95 &2112197776
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2112197769}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 637ae8aada57279499946debf91c9184, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
