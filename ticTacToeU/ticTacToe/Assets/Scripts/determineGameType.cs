@@ -48,9 +48,9 @@ public class determineGameType : MonoBehaviour
 
     public void jerryHit()
     {
-        ticTacManager.Player newPlayer = new ticTacManager.Player();
+        Player newPlayer = new Player();
         newPlayer.playerCharacter = ticTacManager.Players.Jerry;
-        newPlayer.playerTurnText.text = "It's Jerry's turn!";
+        newPlayer.playerTurnText = "It's Jerry's turn!";
         newPlayer.playerCharacterTexture = jerryTexture;
 
         if (newPlayer.isPlayer1)
@@ -64,9 +64,9 @@ public class determineGameType : MonoBehaviour
 
     public void georgeHit()
     {
-        ticTacManager.Player newPlayer = new ticTacManager.Player();
+        Player newPlayer = new Player();
         newPlayer.playerCharacter = ticTacManager.Players.George;
-        newPlayer.playerTurnText.text = "It's George's turn!";
+        newPlayer.playerTurnText = "It's George's turn!";
         newPlayer.playerCharacterTexture = georgeTexture;
 
         if (newPlayer.isPlayer1)
@@ -78,9 +78,9 @@ public class determineGameType : MonoBehaviour
     }
     public void elaineHit()
     {
-        ticTacManager.Player newPlayer = new ticTacManager.Player();
+        Player newPlayer = new Player();
         newPlayer.playerCharacter = ticTacManager.Players.Elaine;
-        newPlayer.playerTurnText.text = "It's Elaine's turn!";
+        newPlayer.playerTurnText = "It's Elaine's turn!";
         newPlayer.playerCharacterTexture = elaineTexture;
 
         if (newPlayer.isPlayer1)
@@ -92,9 +92,9 @@ public class determineGameType : MonoBehaviour
     }
     public void kramerHit()
     {
-        ticTacManager.Player newPlayer = new ticTacManager.Player();
+        Player newPlayer = new Player();
         newPlayer.playerCharacter = ticTacManager.Players.Kramer;
-        newPlayer.playerTurnText.text = "It's Kramer's turn!";
+        newPlayer.playerTurnText = "It's Kramer's turn!";
         newPlayer.playerCharacterTexture = kramerTexture;
 
         if (newPlayer.isPlayer1)
@@ -106,9 +106,9 @@ public class determineGameType : MonoBehaviour
     }
     public void newmanHit()
     {
-        ticTacManager.Player newPlayer = new ticTacManager.Player();
+        Player newPlayer = new Player();
         newPlayer.playerCharacter = ticTacManager.Players.Newman;
-        newPlayer.playerTurnText.text = "It's Newman's turn!";
+        newPlayer.playerTurnText = "It's Newman's turn!";
         newPlayer.playerCharacterTexture = newmanTexture;
 
         if (newPlayer.isPlayer1)

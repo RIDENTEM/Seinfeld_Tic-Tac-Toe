@@ -19,18 +19,7 @@ public class ticTacManager : MonoBehaviour
         private int turnNumber = overallTurnNumber;
     }
 
-  public  class Player
-    {
-        public Players playerCharacter;
-        public Texture playerCharacterTexture;
-        public Text playerTurnText;
-        public bool isPlayer1 = false;
-        public Player()
-        {
-
-            isPlayer1 = !isPlayer1;
-        }
-    }
+ 
 
     
 
@@ -93,10 +82,51 @@ public class ticTacManager : MonoBehaviour
 
     public string displayPlayerTurn(Player currPlayer)
     {
-        return currPlayer.playerTurnText.text;
+        return currPlayer.playerTurnText;
     }
 
+	public void genericeWinCheck(int rowSize, GameObject[,] tileArray)
+	{
+		bool checkedHere = false;
+		for (int i = 0; i < rowSize; i++) {
+			for (int j = 0; j < rowSize; j++) {
+				if (i == 0)
+					for (int e = 0; e < rowSize; e++) {
+						if (e == rowSize - 1) {
+							if (tileArray [i, e - 1] == tileArray [i, e]) {
+								//gameWon!
+							}
+							if (tileArray [e - 1, i] == tileArray [e, i]) {
+								//gameWon!
+							}
+						}
+						//Something needs to be done about this, it won't check both and continue
+						if (checkedHere == true) {
+if (tileArray [e, i] == tileArray [e + 1, i])
+								continue;
+							else {
+								checkedHere = false;
+								break;
+							}
+}
+							if (checkedHere == false) {
+							
+							if (tileArray [i, e] == tileArray [i, e + 1]) 
+							continue;
+else {
+								checkedHere = true;
+								break;
 
+							}
+						}
+					}
+
+							
+
+			}
+
+		}
+	}
 
     void populateTilesArray()
     {
