@@ -19,9 +19,9 @@ public class ticTacManager : MonoBehaviour
         private int turnNumber = overallTurnNumber;
     }
 
- 
 
-    
+
+
 
     public static bool isNormalGame;
     static public int overallTurnNumber = 1;
@@ -52,14 +52,14 @@ public class ticTacManager : MonoBehaviour
 
     private void Start()
     {
-		
+
         gameWon = false;
         winLossObject = FindObjectOfType<winLossScript>();
         playerMovesToSave = new List<PlayerMoves>();
         playerMovesToSave.Capacity = 3;
-        currentPlayer = player1; 
-		populateTilesArray ();
-		typeOfGrid (); 
+        currentPlayer = player1;
+        populateTilesArray();
+        typeOfGrid();
         if (startupDel != null)
             startupDel();
     }
@@ -85,48 +85,92 @@ public class ticTacManager : MonoBehaviour
         return currPlayer.playerTurnText;
     }
 
-	public void genericeWinCheck(int rowSize, GameObject[,] tileArray)
-	{
-		bool checkedHere = false;
-		for (int i = 0; i < rowSize; i++) {
-			for (int j = 0; j < rowSize; j++) {
-				if (i == 0)
-					for (int e = 0; e < rowSize; e++) {
-						if (e == rowSize - 1) {
-							if (tileArray [i, e - 1] == tileArray [i, e]) {
-								//gameWon!
-							}
-							if (tileArray [e - 1, i] == tileArray [e, i]) {
-								//gameWon!
-							}
-						}
-						//Something needs to be done about this, it won't check both and continue
-						if (checkedHere == true) {
-if (tileArray [e, i] == tileArray [e + 1, i])
-								continue;
-							else {
-								checkedHere = false;
-								break;
-							}
-}
-							if (checkedHere == false) {
-							
-							if (tileArray [i, e] == tileArray [i, e + 1]) 
-							continue;
-else {
-								checkedHere = true;
-								break;
+    public void genericWinCheck(int rowSize, GameObject[,] tileArray)
+    {
+        bool checkedRow = false;
+        bool rowsChecked = false;
+        bool checkedDiagonal = false;
+        for (int i = 0; i < rowSize; i++)
+        {
 
-							}
-						}
-					}
+            for (int tileCounter = 0; tileCounter < rowSize; tileCounter++)
+            {
+                if (tileCounter == rowSize - 1)
+                {
+                    if (tileArray[i, tileCounter - 1] == tileArray[i, tileCounter])
+                    {
+                        //gameWon!
+                    }
+                    if (tileArray[tileCounter - 1, i] == tileArray[tileCounter, i])
+                    {
+                        //gameWon!
+                    }
+                    //if the last tile in the diagonal from the left is the same as the one before it in the diagonal, you win
+                    if (i == rowSize - 1 && tileCounter == rowSize - 1 && tileArray[i, tileCounter] == tileArray[i - 1, tileCounter - 1])
+                    {
+                        //gameWon!
+                    }
+                    //if the last tile in the diagonal from the right is the same as the one before it in the diagonal
+                    if (i + tileCounter == rowSize && tileCounter == rowSize - 1 && tileArray[i, tileCounter] == tileArray[i + 1, tileCounter - 1])
+                    {
+                        //gameWon!
+                    }
+                }
 
-							
+                if (rowsChecked == false)
+                {
 
-			}
+                    if (checkedRow == false)
+                    {
 
-		}
-	}
+                        if (tileArray[i, tileCounter] == tileArray[i, tileCounter + 1])
+                            continue;
+                        else
+                        {
+                            checkedRow = true;
+                            tileCounter = 0;
+
+                        }
+                    }
+
+                    else if (checkedRow == true)
+                    {
+                        if (tileArray[tileCounter, i] == tileArray[tileCounter + 1, i])
+                            continue;
+                        else
+                        {
+                            rowsChecked = true;
+                            tileCounter = 0;
+                        }
+                    }
+                }
+
+                if (checkedDiagonal == false && checkedRow == false)
+                {
+
+                    if (i + tileCounter == rowSize)
+                        continue;
+                    else
+                    {
+                        checkedDiagonal = true;
+                        break;
+                    }
+
+                }
+                else if (checkedDiagonal == true && rowsChecked == true)
+                {
+                    if (tileCounter == i)
+                        continue;
+                    else
+                        break;
+                    
+                    
+
+                }
+
+            }
+        }
+    }
 
     void populateTilesArray()
     {
@@ -282,8 +326,8 @@ else {
                 && gridTiles3x3[1, 0].GetComponent<ticTacTileScript>().playerSide != Players.None
                 && gridTiles3x3[2, 0].GetComponent<ticTacTileScript>().playerSide != Players.None)
             {
-                   winLossObject.gameWon();
-                  
+                winLossObject.gameWon();
+
                 Debug.Log("This is a win for the top row straight across");
                 //go to win condition screen or something
             }
@@ -296,8 +340,8 @@ else {
                && gridTiles3x3[0, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
                && gridTiles3x3[0, 2].GetComponent<ticTacTileScript>().playerSide != Players.None)
             {
-                   winLossObject.gameWon();
-                  
+                winLossObject.gameWon();
+
                 Debug.Log("This is a win for the left column");
             }
             if (gridTiles3x3[0, 0].GetComponent<ticTacTileScript>().playerSide ==
@@ -310,8 +354,8 @@ else {
                   && gridTiles3x3[2, 2].GetComponent<ticTacTileScript>().playerSide != Players.None)
             {
 
-                  winLossObject.gameWon();
-                   
+                winLossObject.gameWon();
+
                 Debug.Log("This is a win for diagonal from tile [0,0]");
             }
             #endregion
@@ -323,8 +367,8 @@ else {
                     && gridTiles3x3[2, 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
             {
 
-                   winLossObject.gameWon();
-                 
+                winLossObject.gameWon();
+
                 Debug.Log("This is a win for the middle row straight across");
             }
             if (gridTiles3x3[1, 1].GetComponent<ticTacTileScript>().playerSide == gridTiles3x3[1, 0].GetComponent<ticTacTileScript>().playerSide && gridTiles3x3[1, 0].GetComponent<ticTacTileScript>().playerSide == gridTiles3x3[1, 2].GetComponent<ticTacTileScript>().playerSide
@@ -333,8 +377,8 @@ else {
                    && gridTiles3x3[1, 2].GetComponent<ticTacTileScript>().playerSide != Players.None)
             {
 
-                   winLossObject.gameWon();
-                  
+                winLossObject.gameWon();
+
                 Debug.Log("This is a win for middle column");
             }
             if (gridTiles3x3[1, 1].GetComponent<ticTacTileScript>().playerSide == gridTiles3x3[0, 2].GetComponent<ticTacTileScript>().playerSide && gridTiles3x3[0, 2].GetComponent<ticTacTileScript>().playerSide == gridTiles3x3[2, 0].GetComponent<ticTacTileScript>().playerSide
@@ -343,8 +387,8 @@ else {
                    && gridTiles3x3[2, 0].GetComponent<ticTacTileScript>().playerSide != Players.None)
             {
 
-                  winLossObject.gameWon();
-                  
+                winLossObject.gameWon();
+
                 Debug.Log("This is a win for diagonal from [0,2]");
             }
 
@@ -359,8 +403,8 @@ else {
             {
 
 
-                   winLossObject.gameWon();
-                  
+                winLossObject.gameWon();
+
                 Debug.Log("This is a win for the far right column");
 
 
@@ -371,8 +415,8 @@ else {
                    && gridTiles3x3[1, 2].GetComponent<ticTacTileScript>().playerSide != Players.None
                    && gridTiles3x3[0, 2].GetComponent<ticTacTileScript>().playerSide != Players.None)
             {
-                   winLossObject.gameWon();
-                   
+                winLossObject.gameWon();
+
                 Debug.Log("This is a win for bottom row straight across");
             }
 
@@ -548,8 +592,8 @@ else {
             }
             #endregion
 
-			if (overallTurnNumber >= 16 && gameWon == false)
-				winLossObject.gameTied();
+            if (overallTurnNumber >= 16 && gameWon == false)
+                winLossObject.gameTied();
         }
 
     }
@@ -558,11 +602,11 @@ else {
     {
         Debug.Log(overallTurnNumber);
         Debug.Log(gameWon);
-       
+
     }
 
     private void OnDisable()
-    {  
+    {
     }
 
     public Texture getHeartImage()
