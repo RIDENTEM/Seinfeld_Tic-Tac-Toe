@@ -11,6 +11,7 @@ public class ticTacManager : MonoBehaviour
     public delegate void onGameStartup();
     public static event onGameStartup startupDel;
     public static bool gameWon;
+
     class PlayerMoves
     {
         public Players savedPlayer;
@@ -18,6 +19,20 @@ public class ticTacManager : MonoBehaviour
         private int turnNumber = overallTurnNumber;
     }
 
+  public  class Player
+    {
+        public Players playerCharacter;
+        public Texture playerCharacterTexture;
+        public Text playerTurnText;
+        public bool isPlayer1 = false;
+        public Player()
+        {
+
+            isPlayer1 = !isPlayer1;
+        }
+    }
+
+    
 
     public static bool isNormalGame;
     static public int overallTurnNumber = 1;
@@ -29,7 +44,11 @@ public class ticTacManager : MonoBehaviour
 
 
     public enum Players { Heart, Chip, None, Jerry, Kramer, George, Elaine, Newman };
-    public static Players currentPlayer;
+    public static Player currentPlayer;
+    public static Player player1;
+    public static Player player2;
+    //public static Players player1;
+    //public static Players player2;
 
     [SerializeField] private GameObject panel3x3;
     [SerializeField] private GameObject panel4x4;
@@ -49,10 +68,9 @@ public class ticTacManager : MonoBehaviour
         winLossObject = FindObjectOfType<winLossScript>();
         playerMovesToSave = new List<PlayerMoves>();
         playerMovesToSave.Capacity = 3;
-        currentPlayer = Players.Heart; 
+        currentPlayer = player1; 
 		populateTilesArray ();
-		typeOfGrid ();
-        startupDel += displayPlayerTurn;
+		typeOfGrid (); 
         if (startupDel != null)
             startupDel();
     }
@@ -73,9 +91,9 @@ public class ticTacManager : MonoBehaviour
         }
     }
 
-    public void displayPlayerTurn()
+    public string displayPlayerTurn(Player currPlayer)
     {
-        playerTurnText.text = "It's " + currentPlayer + "'s Turn!";
+        return currPlayer.playerTurnText.text;
     }
 
 
@@ -127,7 +145,7 @@ public class ticTacManager : MonoBehaviour
     public void storeMoves(int tileIndex)
     {
         PlayerMoves newPlayerMove = new PlayerMoves();
-        newPlayerMove.savedPlayer = currentPlayer;
+        newPlayerMove.savedPlayer = currentPlayer.playerCharacter;
         if (isNormalGame)
             switch (tileIndex)
             {
@@ -514,8 +532,7 @@ public class ticTacManager : MonoBehaviour
     }
 
     private void OnDisable()
-    { 
-        startupDel -= displayPlayerTurn;
+    {  
     }
 
     public Texture getHeartImage()
