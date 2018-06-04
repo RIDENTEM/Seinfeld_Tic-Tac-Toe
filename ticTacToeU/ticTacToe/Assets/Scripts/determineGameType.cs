@@ -14,7 +14,6 @@ public class determineGameType : MonoBehaviour
     [SerializeField] private Texture elaineTexture;
     [SerializeField] private Texture kramerTexture;
     [SerializeField] private Texture newmanTexture;
-
     bool isPlayer1Ready = false;
 
 
@@ -53,12 +52,22 @@ public class determineGameType : MonoBehaviour
         newPlayer.playerTurnText = "It's Jerry's turn!";
         newPlayer.playerCharacterTexture = jerryTexture;
 
-        if (newPlayer.isPlayer1)
+        if(isPlayer1Ready == false)
+        {
+            Debug.Log("Player 1 has selected their character.");
+
+            newPlayer.isPlayer1 = true;
+            isPlayer1Ready = true;
             ticTacManager.player1 = newPlayer;
-         else if (!newPlayer.isPlayer1)
+        }
+        else if (isPlayer1Ready == true)
+        {
+            Debug.Log("Player 2 has selected their character.");
+
+            newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
-        
-        
+        }
+
 
     }
 
@@ -69,12 +78,22 @@ public class determineGameType : MonoBehaviour
         newPlayer.playerTurnText = "It's George's turn!";
         newPlayer.playerCharacterTexture = georgeTexture;
 
-        if (newPlayer.isPlayer1)
+
+        if (isPlayer1Ready == false)
         {
+            Debug.Log("Player 1 has selected their character.");
+
+            isPlayer1Ready = true;
+            newPlayer.isPlayer1 = true;
             ticTacManager.player1 = newPlayer;
         }
-        else if(!newPlayer.isPlayer1)
+        else if (isPlayer1Ready == true)
+        {
+            Debug.Log("Player 2 has selected their character.");
+
+            newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
+        }
     }
     public void elaineHit()
     {
@@ -83,12 +102,21 @@ public class determineGameType : MonoBehaviour
         newPlayer.playerTurnText = "It's Elaine's turn!";
         newPlayer.playerCharacterTexture = elaineTexture;
 
-        if (newPlayer.isPlayer1)
+        if (isPlayer1Ready == false)
         {
+            Debug.Log("Player 1 has selected their character.");
+
+            isPlayer1Ready = true;
+            newPlayer.isPlayer1 = true;
             ticTacManager.player1 = newPlayer;
         }
-        else if (!newPlayer.isPlayer1)
+        else if (isPlayer1Ready == true)
+        {
+            Debug.Log("Player 2 has selected their character.");
+
+            newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
+        }
     }
     public void kramerHit()
     {
@@ -97,12 +125,22 @@ public class determineGameType : MonoBehaviour
         newPlayer.playerTurnText = "It's Kramer's turn!";
         newPlayer.playerCharacterTexture = kramerTexture;
 
-        if (newPlayer.isPlayer1)
+
+        if (isPlayer1Ready == false)
         {
+            Debug.Log("Player 1 has selected their character.");
+
+            isPlayer1Ready = true;
+            newPlayer.isPlayer1 = true;
             ticTacManager.player1 = newPlayer;
         }
-        else if (!newPlayer.isPlayer1)
+        else if (isPlayer1Ready == true)
+        {
+            Debug.Log("Player 2 has selected their character.");
+
+            newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
+        }
     }
     public void newmanHit()
     {
@@ -111,11 +149,29 @@ public class determineGameType : MonoBehaviour
         newPlayer.playerTurnText = "It's Newman's turn!";
         newPlayer.playerCharacterTexture = newmanTexture;
 
-        if (newPlayer.isPlayer1)
+
+        if (isPlayer1Ready == false)
         {
+            Debug.Log("Player 1 has selected their character.");
+
+            isPlayer1Ready = true;
+            newPlayer.isPlayer1 = true;
             ticTacManager.player1 = newPlayer;
         }
-        else if (!newPlayer.isPlayer1)
+        else if (isPlayer1Ready == true)
+        {
+            Debug.Log("Player 2 has selected their character.");
+
+            newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
+        }
+    }
+
+    private void Update()
+    {
+        if (ticTacManager.player1 != null)
+            Debug.Log("Player 1 has chosen their fighter");
+        else if (ticTacManager.player2 != null)
+            Debug.Log("Player 2 has chosen their fighter");
     }
 }

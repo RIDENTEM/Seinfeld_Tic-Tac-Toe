@@ -5,11 +5,7 @@ using UnityEngine.UI;
 
 public class ticTacManager : MonoBehaviour
 {
-
-
-
-    public delegate void onGameStartup();
-    public static event onGameStartup startupDel;
+     
     public static bool gameWon;
 
     class PlayerMoves
@@ -29,15 +25,13 @@ public class ticTacManager : MonoBehaviour
     private GameObject[,] gridTiles3x3 = new GameObject[3, 3];
     private GameObject[,] gridTiles4x4 = new GameObject[4, 4];
 
-
+    
 
 
     public enum Players { Heart, Chip, None, Jerry, Kramer, George, Elaine, Newman };
     public static Player currentPlayer;
     public static Player player1;
-    public static Player player2;
-    //public static Players player1;
-    //public static Players player2;
+    public static Player player2; 
 
     [SerializeField] private GameObject panel3x3;
     [SerializeField] private GameObject panel4x4;
@@ -52,16 +46,14 @@ public class ticTacManager : MonoBehaviour
 
     private void Start()
     {
-
+       
         gameWon = false;
         winLossObject = FindObjectOfType<winLossScript>();
         playerMovesToSave = new List<PlayerMoves>();
         playerMovesToSave.Capacity = 3;
         currentPlayer = player1;
         populateTilesArray();
-        typeOfGrid();
-        if (startupDel != null)
-            startupDel();
+        typeOfGrid(); 
     }
 
 
@@ -87,6 +79,11 @@ public class ticTacManager : MonoBehaviour
 
     public void genericWinCheck(int rowSize, GameObject[,] tileArray)
     {
+        if (isNormalGame)
+            tileArray = gridTiles3x3;
+        else
+            tileArray = gridTiles4x4;
+       
         bool checkedRow = false;
         bool rowsChecked = false;
         bool checkedDiagonal = false;
@@ -100,20 +97,31 @@ public class ticTacManager : MonoBehaviour
                     if (tileArray[i, tileCounter - 1] == tileArray[i, tileCounter])
                     {
                         //gameWon!
+                        Debug.Log("Win for one of the rows");
+                        winLossObject.gameWon();
                     }
-                    if (tileArray[tileCounter - 1, i] == tileArray[tileCounter, i])
+                    if (tileCounter == rowSize - 1 && tileArray[tileCounter - 1, i] == tileArray[tileCounter, i])
                     {
                         //gameWon!
+                        Debug.Log("Win for one of the columns");
+                        winLossObject.gameWon();
                     }
                     //if the last tile in the diagonal from the left is the same as the one before it in the diagonal, you win
                     if (i == rowSize - 1 && tileCounter == rowSize - 1 && tileArray[i, tileCounter] == tileArray[i - 1, tileCounter - 1])
                     {
                         //gameWon!
+                        Debug.Log("Win for the diagonal starting from the left");
+
+                        winLossObject.gameWon();
+
                     }
                     //if the last tile in the diagonal from the right is the same as the one before it in the diagonal
                     if (i + tileCounter == rowSize && tileCounter == rowSize - 1 && tileArray[i, tileCounter] == tileArray[i + 1, tileCounter - 1])
                     {
                         //gameWon!
+                        Debug.Log("Win for the diagonal starting from the right");
+                        winLossObject.gameWon();
+
                     }
                 }
 
@@ -157,6 +165,7 @@ public class ticTacManager : MonoBehaviour
                     }
 
                 }
+
                 else if (checkedDiagonal == true && rowsChecked == true)
                 {
                     if (tileCounter == i)
@@ -168,6 +177,10 @@ public class ticTacManager : MonoBehaviour
 
                 }
 
+            }
+            if(overallTurnNumber == rowSize * rowSize && gameWon == false)
+            {
+                winLossObject.gameTied();
             }
         }
     }
@@ -308,315 +321,8 @@ public class ticTacManager : MonoBehaviour
         playerMovesToSave.Add(newPlayerMove);
     }
 
-
-    public void checkForWin()
-    {
-
-        if (isNormalGame)
-        {
-            #region tile[0,0]
-
-            //Possible win situations for tile [0,0]
-            if (gridTiles3x3[0, 0].GetComponent<ticTacTileScript>().playerSide ==
-                gridTiles3x3[1, 0].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles3x3[1, 0].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles3x3[2, 0].GetComponent<ticTacTileScript>().playerSide
-
-                && gridTiles3x3[0, 0].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles3x3[1, 0].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles3x3[2, 0].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-                winLossObject.gameWon();
-
-                Debug.Log("This is a win for the top row straight across");
-                //go to win condition screen or something
-            }
-            if (gridTiles3x3[0, 0].GetComponent<ticTacTileScript>().playerSide ==
-                gridTiles3x3[0, 1].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles3x3[0, 1].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles3x3[0, 2].GetComponent<ticTacTileScript>().playerSide
-
-              && gridTiles3x3[0, 0].GetComponent<ticTacTileScript>().playerSide != Players.None
-               && gridTiles3x3[0, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
-               && gridTiles3x3[0, 2].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-                winLossObject.gameWon();
-
-                Debug.Log("This is a win for the left column");
-            }
-            if (gridTiles3x3[0, 0].GetComponent<ticTacTileScript>().playerSide ==
-                 gridTiles3x3[1, 1].GetComponent<ticTacTileScript>().playerSide
-               && gridTiles3x3[1, 1].GetComponent<ticTacTileScript>().playerSide ==
-               gridTiles3x3[2, 2].GetComponent<ticTacTileScript>().playerSide
-
-                   && gridTiles3x3[0, 0].GetComponent<ticTacTileScript>().playerSide != Players.None
-                   && gridTiles3x3[1, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
-                  && gridTiles3x3[2, 2].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-
-                winLossObject.gameWon();
-
-                Debug.Log("This is a win for diagonal from tile [0,0]");
-            }
-            #endregion
-
-            #region tile[1,1]
-            if (gridTiles3x3[1, 1].GetComponent<ticTacTileScript>().playerSide == gridTiles3x3[0, 1].GetComponent<ticTacTileScript>().playerSide && gridTiles3x3[0, 1].GetComponent<ticTacTileScript>().playerSide == gridTiles3x3[2, 1].GetComponent<ticTacTileScript>().playerSide
-                      && gridTiles3x3[1, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
-                    && gridTiles3x3[0, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
-                    && gridTiles3x3[2, 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-
-                winLossObject.gameWon();
-
-                Debug.Log("This is a win for the middle row straight across");
-            }
-            if (gridTiles3x3[1, 1].GetComponent<ticTacTileScript>().playerSide == gridTiles3x3[1, 0].GetComponent<ticTacTileScript>().playerSide && gridTiles3x3[1, 0].GetComponent<ticTacTileScript>().playerSide == gridTiles3x3[1, 2].GetComponent<ticTacTileScript>().playerSide
-               && gridTiles3x3[1, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
-                   && gridTiles3x3[1, 0].GetComponent<ticTacTileScript>().playerSide != Players.None
-                   && gridTiles3x3[1, 2].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-
-                winLossObject.gameWon();
-
-                Debug.Log("This is a win for middle column");
-            }
-            if (gridTiles3x3[1, 1].GetComponent<ticTacTileScript>().playerSide == gridTiles3x3[0, 2].GetComponent<ticTacTileScript>().playerSide && gridTiles3x3[0, 2].GetComponent<ticTacTileScript>().playerSide == gridTiles3x3[2, 0].GetComponent<ticTacTileScript>().playerSide
-               && gridTiles3x3[1, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
-                   && gridTiles3x3[0, 2].GetComponent<ticTacTileScript>().playerSide != Players.None
-                   && gridTiles3x3[2, 0].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-
-                winLossObject.gameWon();
-
-                Debug.Log("This is a win for diagonal from [0,2]");
-            }
-
-            #endregion
-
-            #region tile[2,2]
-
-            if (gridTiles3x3[2, 2].GetComponent<ticTacTileScript>().playerSide == gridTiles3x3[2, 1].GetComponent<ticTacTileScript>().playerSide && gridTiles3x3[2, 1].GetComponent<ticTacTileScript>().playerSide == gridTiles3x3[2, 0].GetComponent<ticTacTileScript>().playerSide
-               && gridTiles3x3[2, 2].GetComponent<ticTacTileScript>().playerSide != Players.None
-                    && gridTiles3x3[2, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
-                    && gridTiles3x3[2, 0].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-
-
-                winLossObject.gameWon();
-
-                Debug.Log("This is a win for the far right column");
-
-
-            }
-            if (gridTiles3x3[2, 2].GetComponent<ticTacTileScript>().playerSide == gridTiles3x3[1, 2].GetComponent<ticTacTileScript>().playerSide
-               && gridTiles3x3[1, 2].GetComponent<ticTacTileScript>().playerSide == gridTiles3x3[0, 2].GetComponent<ticTacTileScript>().playerSide
-               && gridTiles3x3[2, 2].GetComponent<ticTacTileScript>().playerSide != Players.None
-                   && gridTiles3x3[1, 2].GetComponent<ticTacTileScript>().playerSide != Players.None
-                   && gridTiles3x3[0, 2].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-                winLossObject.gameWon();
-
-                Debug.Log("This is a win for bottom row straight across");
-            }
-
-            #endregion
-
-
-
-            if (overallTurnNumber >= 9 && gameWon == false)
-                winLossObject.gameTied();
-
-        }
-
-        else if (!isNormalGame)
-        {
-            #region tile[0,0]
-
-            if (gridTiles4x4[0, 0].GetComponent<ticTacTileScript>().playerSide == gridTiles4x4[1, 0].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[1, 0].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[2, 0].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[2, 0].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[3, 0].GetComponent<ticTacTileScript>().playerSide
-
-                && gridTiles4x4[0, 0].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[1, 0].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[2, 0].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[3, 0].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-                winLossObject.gameWon();
-                Debug.Log("This is a win for the top row straight across");
-            }
-            else if (gridTiles4x4[0, 0].GetComponent<ticTacTileScript>().playerSide == gridTiles4x4[0, 1].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[0, 1].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[0, 2].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[0, 2].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[0, 3].GetComponent<ticTacTileScript>().playerSide
-
-                && gridTiles4x4[0, 0].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[0, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[0, 2].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[0, 3].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-                winLossObject.gameWon();
-                Debug.Log("This is a win for the leftmost column");
-            }
-            else if (gridTiles4x4[0, 0].GetComponent<ticTacTileScript>().playerSide == gridTiles4x4[1, 1].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[1, 1].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[2, 2].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[2, 2].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[3, 3].GetComponent<ticTacTileScript>().playerSide
-
-                && gridTiles4x4[0, 0].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[1, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[2, 2].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[3, 3].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-                winLossObject.gameWon();
-                Debug.Log("This is a win for the diagonal from [0,0]");
-            }
-
-            #endregion
-
-            #region tile[1,1]
-
-            if (gridTiles4x4[1, 1].GetComponent<ticTacTileScript>().playerSide == gridTiles4x4[1, 0].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[1, 0].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[1, 2].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[1, 2].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[1, 3].GetComponent<ticTacTileScript>().playerSide
-
-                && gridTiles4x4[1, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[1, 0].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[1, 2].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[1, 3].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-                winLossObject.gameWon();
-                Debug.Log("Win for the second column from the left");
-            }
-            else if (gridTiles4x4[1, 1].GetComponent<ticTacTileScript>().playerSide == gridTiles4x4[0, 1].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[0, 1].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[2, 1].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[2, 1].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[3, 1].GetComponent<ticTacTileScript>().playerSide
-
-            && gridTiles4x4[1, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[0, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[2, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[3, 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-                winLossObject.gameWon();
-                Debug.Log("Win for the second row from the top");
-            }
-            #endregion
-
-            #region tile[2,2]
-
-            if (gridTiles4x4[2, 1].GetComponent<ticTacTileScript>().playerSide == gridTiles4x4[1, 2].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[1, 2].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[0, 2].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[0, 2].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[3, 2].GetComponent<ticTacTileScript>().playerSide
-
-                   && gridTiles4x4[2, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[1, 2].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[0, 2].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[3, 2].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-                winLossObject.gameWon();
-                Debug.Log("Win for third row down");
-            }
-            else if (gridTiles4x4[2, 2].GetComponent<ticTacTileScript>().playerSide == gridTiles4x4[2, 1].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[2, 1].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[2, 0].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[2, 0].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[2, 3].GetComponent<ticTacTileScript>().playerSide
-
-                   && gridTiles4x4[2, 2].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[2, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[2, 0].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[2, 3].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-                winLossObject.gameWon();
-                Debug.Log("Win for third column from left");
-            }
-            #endregion
-
-            #region tile[3,3]
-
-            if (gridTiles4x4[3, 3].GetComponent<ticTacTileScript>().playerSide == gridTiles4x4[2, 3].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[2, 3].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[1, 3].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[1, 3].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[0, 3].GetComponent<ticTacTileScript>().playerSide
-
-               && gridTiles4x4[3, 3].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[2, 3].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[1, 3].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[0, 3].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-                winLossObject.gameWon();
-                Debug.Log("This is a win for the bottom row");
-            }
-            else if (gridTiles4x4[3, 3].GetComponent<ticTacTileScript>().playerSide == gridTiles4x4[3, 2].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[3, 2].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[3, 1].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[3, 1].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[3, 0].GetComponent<ticTacTileScript>().playerSide
-
-                && gridTiles4x4[3, 3].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[3, 2].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[3, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[3, 0].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-                winLossObject.gameWon();
-                Debug.Log("This is a win for the far right column");
-            }
-
-            #endregion
-
-            #region tile[3,0]
-            else if (gridTiles4x4[3, 0].GetComponent<ticTacTileScript>().playerSide == gridTiles4x4[2, 1].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[2, 1].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[1, 2].GetComponent<ticTacTileScript>().playerSide
-                && gridTiles4x4[1, 2].GetComponent<ticTacTileScript>().playerSide
-                == gridTiles4x4[0, 3].GetComponent<ticTacTileScript>().playerSide
-
-                    && gridTiles4x4[3, 0].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[2, 1].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[1, 2].GetComponent<ticTacTileScript>().playerSide != Players.None
-                && gridTiles4x4[0, 3].GetComponent<ticTacTileScript>().playerSide != Players.None)
-            {
-                winLossObject.gameWon();
-                Debug.Log("Win for the diagonal starting from [3,0]");
-            }
-            #endregion
-
-            if (overallTurnNumber >= 16 && gameWon == false)
-                winLossObject.gameTied();
-        }
-
-    }
-
-    private void Update()
-    {
-        Debug.Log(overallTurnNumber);
-        Debug.Log(gameWon);
-
-    }
-
-    private void OnDisable()
-    {
-    }
-
-    public Texture getHeartImage()
-    {
-        return heartImage;
-    }
-    public Texture getChipImage()
-    {
-        return chipImage;
-    }
+     
+    
 
 
 

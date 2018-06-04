@@ -20,7 +20,7 @@ public class winLossScript : MonoBehaviour
         playerTurnText.gameObject.SetActive(false);
         tieText.gameObject.SetActive(false);
         winText.gameObject.SetActive(true);
-        winText.text = "Player " + ticTacManager.currentPlayer + " wins!";
+        winText.text =  ticTacManager.currentPlayer.playerCharacter + " wins!";
       
 
 

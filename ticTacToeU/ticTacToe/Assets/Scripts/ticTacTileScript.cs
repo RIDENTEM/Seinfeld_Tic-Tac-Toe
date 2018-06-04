@@ -51,8 +51,10 @@ public class ticTacTileScript : MonoBehaviour
                         if (gameManager)
                             thisButtonImage.texture = ticTacManager.currentPlayer.playerCharacterTexture;
                         //check for win here instead whenever a spot is clicked 
-                        //This will prevent the current player from switching if its the last move in the game before someone wins
-                        gameManager.checkForWin();
+                        if (ticTacManager.isNormalGame)
+                            gameManager.genericWinCheck(3, null);
+                        else
+                            gameManager.genericWinCheck(4, null);
                         //set the current player to whoevers turn it is
                         if (ticTacManager.currentPlayer.isPlayer1)
                             ticTacManager.currentPlayer = ticTacManager.player2;
@@ -60,13 +62,101 @@ public class ticTacTileScript : MonoBehaviour
                             ticTacManager.currentPlayer = ticTacManager.player1; 
                         //After the check for win, let the player know whose turn it is
                         gameManager.displayPlayerTurn(ticTacManager.currentPlayer);
+                        playerSide = ticTacManager.Players.Jerry;
+                        break;
+                    }
+                case ticTacManager.Players.George:
+                    {
+                        //set the image of that tile to a heart 
+                        if (gameManager)
+                            thisButtonImage.texture = ticTacManager.currentPlayer.playerCharacterTexture;
+                        //check for win here instead whenever a spot is clicked 
+                        if (ticTacManager.isNormalGame)
+                            gameManager.genericWinCheck(3, null);
+                        else
+                            gameManager.genericWinCheck(4, null);
+                        //set the current player to whoevers turn it is
+                        if (ticTacManager.currentPlayer.isPlayer1)
+                            ticTacManager.currentPlayer = ticTacManager.player2;
+                        else if (!ticTacManager.currentPlayer.isPlayer1)
+                            ticTacManager.currentPlayer = ticTacManager.player1;
+                        //After the check for win, let the player know whose turn it is
+                        gameManager.displayPlayerTurn(ticTacManager.currentPlayer);
+                        playerSide = ticTacManager.Players.George;
+                        break;
+                    }
+                case ticTacManager.Players.Elaine:
+                    {
+
+                    //set the image of that tile to a heart 
+                    if (gameManager)
+                        thisButtonImage.texture = ticTacManager.currentPlayer.playerCharacterTexture;
+                        //check for win here instead whenever a spot is clicked 
+                        if (ticTacManager.isNormalGame)
+                            gameManager.genericWinCheck(3, null);
+                        else
+                            gameManager.genericWinCheck(4, null);
+                        //set the current player to whoevers turn it is
+                        if (ticTacManager.currentPlayer.isPlayer1)
+                        ticTacManager.currentPlayer = ticTacManager.player2;
+                    else if (!ticTacManager.currentPlayer.isPlayer1)
+                        ticTacManager.currentPlayer = ticTacManager.player1;
+                    //After the check for win, let the player know whose turn it is
+                    gameManager.displayPlayerTurn(ticTacManager.currentPlayer);
+                        playerSide = ticTacManager.Players.Elaine;
                         break;
                     }
 
+                case ticTacManager.Players.Kramer:
+                    {
 
+                        //set the image of that tile to a heart 
+                        if (gameManager)
+                            thisButtonImage.texture = ticTacManager.currentPlayer.playerCharacterTexture;
+                        //check for win here instead whenever a spot is clicked 
+                        if (ticTacManager.isNormalGame)
+                            gameManager.genericWinCheck(3, null);
+                        else
+                            gameManager.genericWinCheck(4, null);
+
+                        //set the current player to whoevers turn it is
+                        if (ticTacManager.currentPlayer.isPlayer1)
+                            ticTacManager.currentPlayer = ticTacManager.player2;
+                        else if (!ticTacManager.currentPlayer.isPlayer1)
+                            ticTacManager.currentPlayer = ticTacManager.player1;
+                        //After the check for win, let the player know whose turn it is
+                        gameManager.displayPlayerTurn(ticTacManager.currentPlayer);
+                        playerSide = ticTacManager.Players.Kramer;
+
+                        break;
+                    }
+
+                case ticTacManager.Players.Newman:
+                    {
+
+                        //set the image of that tile to a heart 
+                        if (gameManager)
+                            thisButtonImage.texture = ticTacManager.currentPlayer.playerCharacterTexture;
+                        //check for win here instead whenever a spot is clicked 
+                        if (ticTacManager.isNormalGame)
+                            gameManager.genericWinCheck(3, null);
+                        else
+                            gameManager.genericWinCheck(4, null);
+
+                        //set the current player to whoevers turn it is
+                        if (ticTacManager.currentPlayer.isPlayer1)
+                            ticTacManager.currentPlayer = ticTacManager.player2;
+                        else if (!ticTacManager.currentPlayer.isPlayer1)
+                            ticTacManager.currentPlayer = ticTacManager.player1;
+                        //After the check for win, let the player know whose turn it is
+                        gameManager.displayPlayerTurn(ticTacManager.currentPlayer);
+                        playerSide = ticTacManager.Players.Newman;
+
+                        break;
+                    }
             }
- 
-           
+
+
             tileClicked = true;
             ticTacManager.overallTurnNumber++;
         }
