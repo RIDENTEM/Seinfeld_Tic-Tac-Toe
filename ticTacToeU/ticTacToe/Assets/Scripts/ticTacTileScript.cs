@@ -35,7 +35,9 @@ public class ticTacTileScript : MonoBehaviour
         if (!tileClicked)
         {
 			//Play in/out animation to make it look nice
-			GetComponent<Animation> ().Play ();
+			//GetComponent<Animation> ().Play ();
+            ///Here is where I will put the animator stuff so I can use more than one animation on each tile
+            
             //if its player hearts turn and they press a tile
             //function to store moves whenever a tile is hit, also finds the index of the current tile in the tiles array
             if (ticTacManager.isNormalGame)
@@ -52,9 +54,9 @@ public class ticTacTileScript : MonoBehaviour
                             thisButtonImage.texture = ticTacManager.currentPlayer.playerCharacterTexture;
                         //check for win here instead whenever a spot is clicked 
                         if (ticTacManager.isNormalGame)
-                            gameManager.genericWinCheck(3, null);
+                            gameManager.genericWinCheck(3);
                         else
-                            gameManager.genericWinCheck(4, null);
+                            gameManager.genericWinCheck(4);
                         //set the current player to whoevers turn it is
                         if (ticTacManager.currentPlayer.isPlayer1)
                             ticTacManager.currentPlayer = ticTacManager.player2;
@@ -72,9 +74,9 @@ public class ticTacTileScript : MonoBehaviour
                             thisButtonImage.texture = ticTacManager.currentPlayer.playerCharacterTexture;
                         //check for win here instead whenever a spot is clicked 
                         if (ticTacManager.isNormalGame)
-                            gameManager.genericWinCheck(3, null);
+                            gameManager.genericWinCheck(3);
                         else
-                            gameManager.genericWinCheck(4, null);
+                            gameManager.genericWinCheck(4);
                         //set the current player to whoevers turn it is
                         if (ticTacManager.currentPlayer.isPlayer1)
                             ticTacManager.currentPlayer = ticTacManager.player2;
@@ -93,9 +95,9 @@ public class ticTacTileScript : MonoBehaviour
                         thisButtonImage.texture = ticTacManager.currentPlayer.playerCharacterTexture;
                         //check for win here instead whenever a spot is clicked 
                         if (ticTacManager.isNormalGame)
-                            gameManager.genericWinCheck(3, null);
+                            gameManager.genericWinCheck(3);
                         else
-                            gameManager.genericWinCheck(4, null);
+                            gameManager.genericWinCheck(4);
                         //set the current player to whoevers turn it is
                         if (ticTacManager.currentPlayer.isPlayer1)
                         ticTacManager.currentPlayer = ticTacManager.player2;
@@ -115,9 +117,9 @@ public class ticTacTileScript : MonoBehaviour
                             thisButtonImage.texture = ticTacManager.currentPlayer.playerCharacterTexture;
                         //check for win here instead whenever a spot is clicked 
                         if (ticTacManager.isNormalGame)
-                            gameManager.genericWinCheck(3, null);
+                            gameManager.genericWinCheck(3);
                         else
-                            gameManager.genericWinCheck(4, null);
+                            gameManager.genericWinCheck(4);
 
                         //set the current player to whoevers turn it is
                         if (ticTacManager.currentPlayer.isPlayer1)
@@ -139,9 +141,9 @@ public class ticTacTileScript : MonoBehaviour
                             thisButtonImage.texture = ticTacManager.currentPlayer.playerCharacterTexture;
                         //check for win here instead whenever a spot is clicked 
                         if (ticTacManager.isNormalGame)
-                            gameManager.genericWinCheck(3, null);
+                            gameManager.genericWinCheck(3);
                         else
-                            gameManager.genericWinCheck(4, null);
+                            gameManager.genericWinCheck(4);
 
                         //set the current player to whoevers turn it is
                         if (ticTacManager.currentPlayer.isPlayer1)

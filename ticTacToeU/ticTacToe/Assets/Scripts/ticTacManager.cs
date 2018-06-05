@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ticTacManager : MonoBehaviour
 {
-     
+
     public static bool gameWon;
 
     class PlayerMoves
@@ -25,13 +25,13 @@ public class ticTacManager : MonoBehaviour
     private GameObject[,] gridTiles3x3 = new GameObject[3, 3];
     private GameObject[,] gridTiles4x4 = new GameObject[4, 4];
 
-    
+
 
 
     public enum Players { Heart, Chip, None, Jerry, Kramer, George, Elaine, Newman };
     public static Player currentPlayer;
     public static Player player1;
-    public static Player player2; 
+    public static Player player2;
 
     [SerializeField] private GameObject panel3x3;
     [SerializeField] private GameObject panel4x4;
@@ -46,14 +46,14 @@ public class ticTacManager : MonoBehaviour
 
     private void Start()
     {
-       
+
         gameWon = false;
         winLossObject = FindObjectOfType<winLossScript>();
         playerMovesToSave = new List<PlayerMoves>();
         playerMovesToSave.Capacity = 3;
         currentPlayer = player1;
         populateTilesArray();
-        typeOfGrid(); 
+        typeOfGrid();
     }
 
 
@@ -72,42 +72,49 @@ public class ticTacManager : MonoBehaviour
         }
     }
 
-    public string displayPlayerTurn(Player currPlayer)
+    public void displayPlayerTurn(Player currPlayer)
     {
-        return currPlayer.playerTurnText;
+        playerTurnText.text = currPlayer.playerTurnText;
     }
 
-    public void genericWinCheck(int rowSize, GameObject[,] tileArray)
+    public void genericWinCheck(int rowSize)
     {
+        int totalRowSize = rowSize;
+        int columnSize = rowSize;
+        int totalColumnSize = rowSize;
+        GameObject[,] tileArray;
         if (isNormalGame)
             tileArray = gridTiles3x3;
         else
             tileArray = gridTiles4x4;
-       
+
         bool checkedRow = false;
         bool rowsChecked = false;
         bool checkedDiagonal = false;
-        for (int i = 0; i < rowSize; i++)
+        for (int columns = 0; columns < columnSize; columns++)
         {
 
-            for (int tileCounter = 0; tileCounter < rowSize; tileCounter++)
+            for (int rows = 0; rows < rowSize; rows++)
             {
-                if (tileCounter == rowSize - 1)
+                if (rows == rowSize - 1)
                 {
-                    if (tileArray[i, tileCounter - 1] == tileArray[i, tileCounter])
+                    if (rows == rowSize - 1 && tileArray[columns, rows - 1].GetComponent<ticTacTileScript>().playerSide == tileArray[columns, rows].GetComponent<ticTacTileScript>().playerSide &&
+                        tileArray[columns, rows - 1].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[columns, rows].GetComponent<ticTacTileScript>().playerSide != Players.None)
                     {
                         //gameWon!
                         Debug.Log("Win for one of the rows");
                         winLossObject.gameWon();
                     }
-                    if (tileCounter == rowSize - 1 && tileArray[tileCounter - 1, i] == tileArray[tileCounter, i])
+                    else if (rows == rowSize - 1 && tileArray[rows - 1, columns].GetComponent<ticTacTileScript>().playerSide == tileArray[rows, columns].GetComponent<ticTacTileScript>().playerSide &&
+                        tileArray[rows - 1, columns].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rows, columns].GetComponent<ticTacTileScript>().playerSide != Players.None)
                     {
                         //gameWon!
                         Debug.Log("Win for one of the columns");
                         winLossObject.gameWon();
                     }
                     //if the last tile in the diagonal from the left is the same as the one before it in the diagonal, you win
-                    if (i == rowSize - 1 && tileCounter == rowSize - 1 && tileArray[i, tileCounter] == tileArray[i - 1, tileCounter - 1])
+                    else if (columns == rowSize - 1 && rows == rowSize - 1 && tileArray[columns, rows].GetComponent<ticTacTileScript>().playerSide == tileArray[columns - 1, rows - 1].GetComponent<ticTacTileScript>().playerSide
+                        && tileArray[columns, rows].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[columns - 1, rows - 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
                     {
                         //gameWon!
                         Debug.Log("Win for the diagonal starting from the left");
@@ -116,7 +123,8 @@ public class ticTacManager : MonoBehaviour
 
                     }
                     //if the last tile in the diagonal from the right is the same as the one before it in the diagonal
-                    if (i + tileCounter == rowSize && tileCounter == rowSize - 1 && tileArray[i, tileCounter] == tileArray[i + 1, tileCounter - 1])
+                    else if (columns + rows == rowSize && rows == rowSize - 1 && tileArray[columns, rows].GetComponent<ticTacTileScript>().playerSide == tileArray[columns + 1, rows - 1].GetComponent<ticTacTileScript>().playerSide
+                        && rows == rowSize - 1 && tileArray[columns, rows].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[columns + 1, rows - 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
                     {
                         //gameWon!
                         Debug.Log("Win for the diagonal starting from the right");
@@ -125,30 +133,39 @@ public class ticTacManager : MonoBehaviour
                     }
                 }
 
+                //if all the rows have not been checked yet
                 if (rowsChecked == false)
                 {
-
+                    //as long as one of the rows hasn't been checked or one of them can't be a winner
                     if (checkedRow == false)
                     {
-
-                        if (tileArray[i, tileCounter] == tileArray[i, tileCounter + 1])
-                            continue;
-                        else
+                        //as long as tile counter isn't on the last tile in the sequence, compare all the tiles it is currently on to the next one up
+                        if (rows != totalRowSize - 1)
                         {
-                            checkedRow = true;
-                            tileCounter = 0;
 
+                            if (tileArray[rows, columns].GetComponent<ticTacTileScript>().playerSide == tileArray[rows + 1, columns].GetComponent<ticTacTileScript>().playerSide)
+                                continue;
+                            else
+                            {
+                                checkedRow = true;
+                                rows = 0;
+                            }
                         }
                     }
-
+                    //if the rows have been checked
                     else if (checkedRow == true)
                     {
-                        if (tileArray[tileCounter, i] == tileArray[tileCounter + 1, i])
-                            continue;
-                        else
+                        //it is time to move on to the columns
+                        if (rows != totalRowSize - 1)
+                            //I need to decide what I actually want here, I might need to make separate for loops for each one(row,column, diagonal)
                         {
-                            rowsChecked = true;
-                            tileCounter = 0;
+                            if (tileArray[columns, rows].GetComponent<ticTacTileScript>().playerSide == tileArray[rows + 1, columns].GetComponent<ticTacTileScript>().playerSide)
+                                continue;
+                            else
+                            {
+                                rowsChecked = true;
+                                rows = 0;
+                            }
                         }
                     }
                 }
@@ -156,7 +173,7 @@ public class ticTacManager : MonoBehaviour
                 if (checkedDiagonal == false && checkedRow == false)
                 {
 
-                    if (i + tileCounter == rowSize)
+                    if (columns + rows == rowSize)
                         continue;
                     else
                     {
@@ -168,17 +185,17 @@ public class ticTacManager : MonoBehaviour
 
                 else if (checkedDiagonal == true && rowsChecked == true)
                 {
-                    if (tileCounter == i)
+                    if (rows == columns)
                         continue;
                     else
                         break;
-                    
-                    
+
+
 
                 }
 
             }
-            if(overallTurnNumber == rowSize * rowSize && gameWon == false)
+            if (overallTurnNumber == rowSize * rowSize && gameWon == false)
             {
                 winLossObject.gameTied();
             }
@@ -321,8 +338,8 @@ public class ticTacManager : MonoBehaviour
         playerMovesToSave.Add(newPlayerMove);
     }
 
-     
-    
+
+
 
 
 
