@@ -46,7 +46,7 @@ public class ticTacManager : MonoBehaviour
 
     private void Start()
     {
-
+        playerTurnText.text = currentPlayer.playerTurnText;
         gameWon = false;
         winLossObject = FindObjectOfType<winLossScript>();
         playerMovesToSave = new List<PlayerMoves>();
@@ -105,13 +105,7 @@ public class ticTacManager : MonoBehaviour
                         Debug.Log("Win for one of the rows");
                         winLossObject.gameWon();
                     }
-                    else if (rows == rowSize - 1 && tileArray[rows - 1, columns].GetComponent<ticTacTileScript>().playerSide == tileArray[rows, columns].GetComponent<ticTacTileScript>().playerSide &&
-                        tileArray[rows - 1, columns].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rows, columns].GetComponent<ticTacTileScript>().playerSide != Players.None)
-                    {
-                        //gameWon!
-                        Debug.Log("Win for one of the columns");
-                        winLossObject.gameWon();
-                    }
+
                     //if the last tile in the diagonal from the left is the same as the one before it in the diagonal, you win
                     else if (columns == rowSize - 1 && rows == rowSize - 1 && tileArray[columns, rows].GetComponent<ticTacTileScript>().playerSide == tileArray[columns - 1, rows - 1].GetComponent<ticTacTileScript>().playerSide
                         && tileArray[columns, rows].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[columns - 1, rows - 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
@@ -152,22 +146,35 @@ public class ticTacManager : MonoBehaviour
                             }
                         }
                     }
+
                     //if the rows have been checked
                     else if (checkedRow == true)
                     {
-                        //it is time to move on to the columns
-                        if (rows != totalRowSize - 1)
+                        //This should be an entire working check for the columns, and if one of the columns is a winner then it will go through the win process
+
                             //I need to decide what I actually want here, I might need to make separate for loops for each one(row,column, diagonal)
-                        {
-                            if (tileArray[columns, rows].GetComponent<ticTacTileScript>().playerSide == tileArray[rows + 1, columns].GetComponent<ticTacTileScript>().playerSide)
-                                continue;
-                            else
-                            {
-                                rowsChecked = true;
-                                rows = 0;
-                            }
+                            for (int rowCheck = 0; rowCheck < rowSize; rowCheck++)
+                                for (int columnCheck = 0; columnCheck < columnSize; columnSize++)
+                                {
+                                    if (columnCheck == columnSize - 1 && tileArray[rowCheck, columnCheck - 1].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide &&
+                              tileArray[rowCheck - 1, columnCheck].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide != Players.None)
+                                    {
+                                        //gameWon!
+                                        Debug.Log("Win for one of the columns");
+                                        winLossObject.gameWon();
+                                    }
+                                    if (columnCheck != columnSize - 1)
+                                    {
+                                        if (tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCheck, columnCheck + 1].GetComponent<ticTacTileScript>().playerSide)
+                                            continue;
+                                        else
+                                        {
+                                            break;
+                                        }
+                                    }
+                                }
                         }
-                    }
+                     
                 }
 
                 if (checkedDiagonal == false && checkedRow == false)
