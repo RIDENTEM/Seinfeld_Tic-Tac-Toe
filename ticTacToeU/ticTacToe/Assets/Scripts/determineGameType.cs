@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class determineGameType : MonoBehaviour
 {
@@ -14,9 +15,14 @@ public class determineGameType : MonoBehaviour
     [SerializeField] private Texture elaineTexture;
     [SerializeField] private Texture kramerTexture;
     [SerializeField] private Texture newmanTexture;
+    [SerializeField] private Text playerChooseText;
+    [SerializeField] private GameObject[] playerSelectionButtons;
+    [SerializeField] private GameObject doneButton;
+
     bool isPlayer1Ready = false;
+    bool isPlayer2Ready = false;
 
-
+     
     public void gameType3x3()
     {
         ticTacManager.isNormalGame = true;
@@ -66,11 +72,11 @@ public class determineGameType : MonoBehaviour
 
             newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
+            isPlayer2Ready = true;
         }
 
 
     }
-
     public void georgeHit()
     {
         Player newPlayer = new Player();
@@ -93,6 +99,8 @@ public class determineGameType : MonoBehaviour
 
             newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
+            isPlayer2Ready = true;
+
         }
     }
     public void elaineHit()
@@ -116,6 +124,8 @@ public class determineGameType : MonoBehaviour
 
             newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
+            isPlayer2Ready = true;
+
         }
     }
     public void kramerHit()
@@ -140,6 +150,8 @@ public class determineGameType : MonoBehaviour
 
             newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
+            isPlayer2Ready = true;
+
         }
     }
     public void newmanHit()
@@ -164,11 +176,29 @@ public class determineGameType : MonoBehaviour
 
             newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
+            isPlayer2Ready = true;
+
         }
     }
 
     private void Update()
     {
+        if (isPlayer1Ready == true)
+        {
+            playerChooseText.text = "Player 2 choose character";
+        }
+        else
+            doneButton.SetActive(false);
+
+        if (isPlayer2Ready == true)
+        {
+            for(int i = 0; i < playerSelectionButtons.Length; i++)
+            {
+                playerSelectionButtons[i].SetActive(false);
+
+            }
+            doneButton.SetActive(true);
+        }
         if (ticTacManager.player1 != null)
             Debug.Log("Player 1 has chosen their fighter");
         else if (ticTacManager.player2 != null)

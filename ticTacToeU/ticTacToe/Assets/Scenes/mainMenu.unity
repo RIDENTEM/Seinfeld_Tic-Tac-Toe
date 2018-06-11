@@ -759,6 +759,9 @@ MonoBehaviour:
   elaineTexture: {fileID: 0}
   kramerTexture: {fileID: 0}
   newmanTexture: {fileID: 0}
+  playerChooseText: {fileID: 0}
+  playerSelectionButtons: []
+  doneButton: {fileID: 0}
 --- !u!1 &420475282
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,14 +854,14 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &677222084
 RectTransform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 677222083}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1763,7 +1766,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: CHOOSE YOUR FIGHTER
+  m_Text: Player 1 choose character
 --- !u!222 &1357520652
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2704,6 +2707,14 @@ MonoBehaviour:
   elaineTexture: {fileID: 2800000, guid: 18a9956ab65da8f47822136c8db6677e, type: 3}
   kramerTexture: {fileID: 2800000, guid: 3a38bd527cfe83345ab1824021e96f4b, type: 3}
   newmanTexture: {fileID: 2800000, guid: 4a30f94e3746352409d3a2aef7f0ec00, type: 3}
+  playerChooseText: {fileID: 1357520651}
+  playerSelectionButtons:
+  - {fileID: 335329758}
+  - {fileID: 1062769754}
+  - {fileID: 48627759}
+  - {fileID: 2032365804}
+  - {fileID: 1583241949}
+  doneButton: {fileID: 677222083}
 --- !u!4 &1997915702
 Transform:
   m_ObjectHideFlags: 0

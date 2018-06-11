@@ -125,7 +125,6 @@ public class ticTacManager : MonoBehaviour
                         continue;
                     else
                         break;
-
                 }
             }
         //check for the diagonal that is each index is the sum of its x and y which equals the total tiles in a row or column
