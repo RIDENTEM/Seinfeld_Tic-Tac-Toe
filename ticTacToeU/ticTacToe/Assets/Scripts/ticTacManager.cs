@@ -34,7 +34,7 @@ public class ticTacManager : MonoBehaviour
     public static Player player2;
 
     [SerializeField] private GameObject panel3x3;
-    [SerializeField] private GameObject panel4x4; 
+    [SerializeField] private GameObject panel4x4;
     public Text playerTurnText;
     public Button[] gridButtons3x3;
     public Button[] gridButtons4x4;
@@ -76,7 +76,7 @@ public class ticTacManager : MonoBehaviour
     }
 
     public void genericWinCheck(int rowSize)
-    { 
+    {
         GameObject[,] tileArray;
         if (isNormalGame)
             tileArray = gridTiles3x3;
@@ -88,19 +88,20 @@ public class ticTacManager : MonoBehaviour
             {
 
                 if (rowCheck == rowSize - 1 && tileArray[rowCheck - 1, columnCheck].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide &&
-                    tileArray[rowCheck - 1, columnCheck].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[columnCheck, rowCheck].GetComponent<ticTacTileScript>().playerSide != Players.None)
+                    tileArray[rowCheck - 1, columnCheck].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide != Players.None)
                 {
                     //gameWon!
                     Debug.Log("Win for one of the rows");
                     winLossObject.gameWon();
                 }
                 if (rowCheck != rowSize - 1)
-                    if (tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCheck + 1, columnCheck].GetComponent<ticTacTileScript>().playerSide)
+                    if (tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCheck + 1, columnCheck].GetComponent<ticTacTileScript>().playerSide &&
+                        tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rowCheck + 1, columnCheck].GetComponent<ticTacTileScript>().playerSide != Players.None)
                         continue;
                     else
                         break;
             }
-         
+
         //This should be an entire working check for the columns, and if one of the columns is a winner then it will go through the win process
         for (int rowCheck = 0; rowCheck < rowSize; rowCheck++)
             for (int columnCheck = 0; columnCheck < rowSize; columnCheck++)
@@ -114,7 +115,8 @@ public class ticTacManager : MonoBehaviour
                 }
                 if (columnCheck != rowSize - 1)
                 {
-                    if (tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCheck, columnCheck + 1].GetComponent<ticTacTileScript>().playerSide)
+                    if (tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCheck, columnCheck + 1].GetComponent<ticTacTileScript>().playerSide &&
+                        tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rowCheck, columnCheck + 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
                         continue;
                     else
                         break;
@@ -126,28 +128,32 @@ public class ticTacManager : MonoBehaviour
             for (int columnCheck = 0; columnCheck < rowSize; columnCheck++)
             {
                 //if the last tile in the diagonal from the left is the same as the one before it in the diagonal, you win
-                if (columnCheck == rowSize - 1 && rowCheck == rowSize - 1 && tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCheck - 1, columnCheck - 1].GetComponent<ticTacTileScript>().playerSide
+                if (columnCheck == rowCheck && columnCheck == rowSize - 1 && rowCheck == rowSize - 1 && tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCheck - 1, columnCheck - 1].GetComponent<ticTacTileScript>().playerSide
                    && tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rowCheck - 1, columnCheck - 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
                 {
                     //gameWon!
                     Debug.Log("Win for the diagonal starting from the left");
                     winLossObject.gameWon();
                 }
-                if (rowCheck == columnCheck && tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCheck + 1, columnCheck + 1].GetComponent<ticTacTileScript>().playerSide)
-                    continue;
-                else
-                    break;
 
+                if (rowCheck == columnCheck && rowCheck != rowSize - 1 && columnCheck != rowSize - 1)
+                {
+                    if (tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCheck + 1, columnCheck + 1].GetComponent<ticTacTileScript>().playerSide &&
+                        tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rowCheck + 1, columnCheck + 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
+                        break;
+                }
+                else
+                    continue;
 
             }
 
         //check for the diagonal that is each index is the sum of its x and y which equals the total tiles in a row or column
-       
-        for (int rowCheck = 0; rowCheck < rowSize; rowCheck++)
+
+        for (int rowCheck = rowSize - 1; rowCheck > -1; rowCheck--)
             for (int columnCheck = 0; columnCheck < rowSize; columnCheck++)
             {
-   //if the last tile in the diagonal from the right is the same as the one before it in the diagonal
-                if (rowCheck + columnCheck == rowSize && columnCheck == rowSize - 1 && tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCheck +1, columnCheck - 1].GetComponent<ticTacTileScript>().playerSide
+                //if the last tile in the diagonal from the right is the same as the one before it in the diagonal
+                if (rowCheck + columnCheck == rowSize - 1 && columnCheck == rowSize - 1 && rowCheck == 0 && tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCheck + 1, columnCheck - 1].GetComponent<ticTacTileScript>().playerSide
                     && tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rowCheck + 1, columnCheck - 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
                 {
                     //gameWon!
@@ -155,16 +161,21 @@ public class ticTacManager : MonoBehaviour
                     winLossObject.gameWon();
 
                 }
-                if (rowCheck != rowSize - 1)
-                    if (columnCheck + rowCheck == rowSize - 1 && tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCheck + 1, columnCheck - 1].GetComponent<ticTacTileScript>().playerSide)
-                        continue;
-                    else
+                //if row check isn't the very last position the loop checks, which is at [0,whatever]
+                if (rowCheck + columnCheck == rowSize - 1 && rowCheck != 0 && columnCheck != rowSize - 1)
+                {
+                    if (columnCheck + rowCheck == rowSize - 1 && tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCheck - 1, columnCheck + 1].GetComponent<ticTacTileScript>().playerSide &&
+                        tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rowCheck - 1, columnCheck + 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
                         break;
+                    
+                }
+                else
+                    continue;
             }
 
         if (overallTurnNumber == rowSize * rowSize && gameWon == false)
             winLossObject.gameTied();
-        int breaker = 1;
+
 
     }
 

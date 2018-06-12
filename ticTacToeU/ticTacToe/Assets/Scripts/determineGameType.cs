@@ -197,6 +197,7 @@ public class determineGameType : MonoBehaviour
                 playerSelectionButtons[i].SetActive(false);
 
             }
+            playerChooseText.gameObject.SetActive(false);
             doneButton.SetActive(true);
         }
         if (ticTacManager.player1 != null)

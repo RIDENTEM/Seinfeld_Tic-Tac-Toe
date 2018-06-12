@@ -49,6 +49,9 @@ public class ticTacTileScript : MonoBehaviour
             {
                 case ticTacManager.Players.Jerry:
                     {
+                        //this needs to be earlier to let the win script know that the tile has been changed
+                        playerSide = ticTacManager.Players.Jerry;
+
                         //set the image of that tile to a heart 
                         if (gameManager)
                             thisButtonImage.texture = ticTacManager.currentPlayer.playerCharacterTexture;
@@ -64,11 +67,12 @@ public class ticTacTileScript : MonoBehaviour
                             ticTacManager.currentPlayer = ticTacManager.player1; 
                         //After the check for win, let the player know whose turn it is
                         gameManager.displayPlayerTurn(ticTacManager.currentPlayer);
-                        playerSide = ticTacManager.Players.Jerry;
                         break;
                     }
                 case ticTacManager.Players.George:
                     {
+                        playerSide = ticTacManager.Players.George;
+
                         //set the image of that tile to a heart 
                         if (gameManager)
                             thisButtonImage.texture = ticTacManager.currentPlayer.playerCharacterTexture;
@@ -84,14 +88,14 @@ public class ticTacTileScript : MonoBehaviour
                             ticTacManager.currentPlayer = ticTacManager.player1;
                         //After the check for win, let the player know whose turn it is
                         gameManager.displayPlayerTurn(ticTacManager.currentPlayer);
-                        playerSide = ticTacManager.Players.George;
                         break;
                     }
                 case ticTacManager.Players.Elaine:
                     {
+                        playerSide = ticTacManager.Players.Elaine;
 
-                    //set the image of that tile to a heart 
-                    if (gameManager)
+                        //set the image of that tile to a heart 
+                        if (gameManager)
                         thisButtonImage.texture = ticTacManager.currentPlayer.playerCharacterTexture;
                         //check for win here instead whenever a spot is clicked 
                         if (ticTacManager.isNormalGame)
@@ -105,12 +109,12 @@ public class ticTacTileScript : MonoBehaviour
                         ticTacManager.currentPlayer = ticTacManager.player1;
                     //After the check for win, let the player know whose turn it is
                     gameManager.displayPlayerTurn(ticTacManager.currentPlayer);
-                        playerSide = ticTacManager.Players.Elaine;
                         break;
                     }
 
                 case ticTacManager.Players.Kramer:
                     {
+                        playerSide = ticTacManager.Players.Kramer;
 
                         //set the image of that tile to a heart 
                         if (gameManager)
@@ -128,13 +132,13 @@ public class ticTacTileScript : MonoBehaviour
                             ticTacManager.currentPlayer = ticTacManager.player1;
                         //After the check for win, let the player know whose turn it is
                         gameManager.displayPlayerTurn(ticTacManager.currentPlayer);
-                        playerSide = ticTacManager.Players.Kramer;
 
                         break;
                     }
 
                 case ticTacManager.Players.Newman:
                     {
+                        playerSide = ticTacManager.Players.Newman;
 
                         //set the image of that tile to a heart 
                         if (gameManager)
@@ -152,7 +156,6 @@ public class ticTacTileScript : MonoBehaviour
                             ticTacManager.currentPlayer = ticTacManager.player1;
                         //After the check for win, let the player know whose turn it is
                         gameManager.displayPlayerTurn(ticTacManager.currentPlayer);
-                        playerSide = ticTacManager.Players.Newman;
 
                         break;
                     }
