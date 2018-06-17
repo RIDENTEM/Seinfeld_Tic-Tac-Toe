@@ -22,7 +22,7 @@ public class determineGameType : MonoBehaviour
     bool isPlayer1Ready = false;
     bool isPlayer2Ready = false;
 
-     
+
     public void gameType3x3()
     {
         ticTacManager.isNormalGame = true;
@@ -58,7 +58,7 @@ public class determineGameType : MonoBehaviour
         newPlayer.playerTurnText = "It's Jerry's turn!";
         newPlayer.playerCharacterTexture = jerryTexture;
 
-        if(isPlayer1Ready == false)
+        if (isPlayer1Ready == false)
         {
             Debug.Log("Player 1 has selected their character.");
 
@@ -183,22 +183,26 @@ public class determineGameType : MonoBehaviour
 
     private void Update()
     {
-        if (isPlayer1Ready == true)
+        if (doneButton)
         {
-            playerChooseText.text = "Player 2 choose character";
-        }
-        else
-            doneButton.SetActive(false);
 
-        if (isPlayer2Ready == true)
-        {
-            for(int i = 0; i < playerSelectionButtons.Length; i++)
+            if (isPlayer1Ready == true)
             {
-                playerSelectionButtons[i].SetActive(false);
-
+                playerChooseText.text = "Player 2 choose character";
             }
-            playerChooseText.gameObject.SetActive(false);
-            doneButton.SetActive(true);
+            else
+                doneButton.SetActive(false);
+
+            if (isPlayer2Ready == true)
+            {
+                for (int i = 0; i < playerSelectionButtons.Length; i++)
+                {
+                    playerSelectionButtons[i].SetActive(false);
+
+                }
+                playerChooseText.gameObject.SetActive(false);
+                doneButton.SetActive(true);
+            }
         }
         if (ticTacManager.player1 != null)
             Debug.Log("Player 1 has chosen their fighter");
