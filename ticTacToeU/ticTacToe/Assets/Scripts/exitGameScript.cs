@@ -6,7 +6,7 @@ public class exitGameScript : MonoBehaviour {
 
 	
 
-    public void onPress()
+    public void onQuitButtonPress()
     {
         Application.Quit();
     }
