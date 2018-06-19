@@ -7,7 +7,7 @@ public class entryAnimation : MonoBehaviour
 {
 
 
-    [SerializeField] private GameObject playerImage;
+    [SerializeField] private Image playerImage;
 
     Vector3 player2Pos = new Vector3(250.0f, 0.0f, 0.0f);
 
@@ -16,13 +16,14 @@ public class entryAnimation : MonoBehaviour
 
     void Start()
     {
-        GameObject player2Image = Instantiate(playerImage, player2Pos, Quaternion.identity);
 
-        playerImage.GetComponent<Material>().mainTexture = ticTacManager.player1.playerCharacterTexture;
-        player2Image.GetComponent<Material>().mainTexture = ticTacManager.player2.playerCharacterTexture;
+        Image player2Image = Instantiate(playerImage, player2Pos, Quaternion.identity);
 
-        playerImage.GetComponent<Material>().color = totallyClear;
-        player2Image.GetComponent<Material>().color = totallyClear;
+        playerImage.material.mainTexture = ticTacManager.player1.playerCharacterTexture;
+        player2Image.material.mainTexture = ticTacManager.player2.playerCharacterTexture;
+
+        playerImage.material.color = totallyClear;
+        player2Image.material.color = totallyClear;
 
         
 
@@ -32,7 +33,7 @@ public class entryAnimation : MonoBehaviour
     {
         Color lerpedColor = totallyClear;
         lerpedColor.a = Mathf.Lerp(lerpedColor.a, 1.0f, 3.0f * Time.deltaTime);
-        playerImage.GetComponent<Material>().color = lerpedColor;
+        playerImage.material.color = lerpedColor;
 
     }
 
@@ -40,13 +41,12 @@ public class entryAnimation : MonoBehaviour
     {
         Color lerpedColor = totallyFull;
         lerpedColor.a = Mathf.Lerp(lerpedColor.a, 0.0f, 3.0f * Time.deltaTime);
-        playerImage.GetComponent<Material>().color = lerpedColor;
+        playerImage.material.color = lerpedColor;
 
 
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         lerpAlphaToFull();
