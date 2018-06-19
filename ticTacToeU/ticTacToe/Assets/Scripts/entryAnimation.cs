@@ -14,9 +14,9 @@ public class entryAnimation : MonoBehaviour
     Color totallyClear = new Color(255.0f, 255.0f, 255.0f, 0.0f);
     Color totallyFull = new Color(255.0f, 255.0f, 255.0f, 255.0f);
 
-    void Start()
-    {
 
+    private void Awake()
+    {
         Image player2Image = Instantiate(playerImage, player2Pos, Quaternion.identity);
 
         playerImage.material.mainTexture = ticTacManager.player1.playerCharacterTexture;
@@ -24,10 +24,7 @@ public class entryAnimation : MonoBehaviour
 
         playerImage.material.color = totallyClear;
         player2Image.material.color = totallyClear;
-
-        
-
-    }
+    } 
 
     void lerpAlphaToFull()
     {
