@@ -15,6 +15,12 @@ public class determineGameType : MonoBehaviour
     [SerializeField] private Texture elaineTexture;
     [SerializeField] private Texture kramerTexture;
     [SerializeField] private Texture newmanTexture;
+    [SerializeField] private AudioClip jerryIntroClip;
+    [SerializeField] private AudioClip georgeIntroClip;
+    [SerializeField] private AudioClip elaineIntroClip;
+    [SerializeField] private AudioClip kramerIntroClip;
+    [SerializeField] private AudioClip newmanIntroClip;
+
     [SerializeField] private Text playerChooseText;
     [SerializeField] private GameObject[] playerSelectionButtons;
     [SerializeField] private GameObject doneButton;
@@ -57,6 +63,7 @@ public class determineGameType : MonoBehaviour
         newPlayer.playerCharacter = ticTacManager.Players.Jerry;
         newPlayer.playerTurnText = "It's Jerry's turn!";
         newPlayer.playerCharacterTexture = jerryTexture;
+        newPlayer.playerIntro = jerryIntroClip;
 
         if (isPlayer1Ready == false)
         {
@@ -83,7 +90,7 @@ public class determineGameType : MonoBehaviour
         newPlayer.playerCharacter = ticTacManager.Players.George;
         newPlayer.playerTurnText = "It's George's turn!";
         newPlayer.playerCharacterTexture = georgeTexture;
-
+        newPlayer.playerIntro = georgeIntroClip;
 
         if (isPlayer1Ready == false)
         {
@@ -109,7 +116,7 @@ public class determineGameType : MonoBehaviour
         newPlayer.playerCharacter = ticTacManager.Players.Elaine;
         newPlayer.playerTurnText = "It's Elaine's turn!";
         newPlayer.playerCharacterTexture = elaineTexture;
-
+        newPlayer.playerIntro = elaineIntroClip;
         if (isPlayer1Ready == false)
         {
             Debug.Log("Player 1 has selected their character.");
@@ -134,7 +141,7 @@ public class determineGameType : MonoBehaviour
         newPlayer.playerCharacter = ticTacManager.Players.Kramer;
         newPlayer.playerTurnText = "It's Kramer's turn!";
         newPlayer.playerCharacterTexture = kramerTexture;
-
+        newPlayer.playerIntro = kramerIntroClip;
 
         if (isPlayer1Ready == false)
         {
@@ -160,7 +167,7 @@ public class determineGameType : MonoBehaviour
         newPlayer.playerCharacter = ticTacManager.Players.Newman;
         newPlayer.playerTurnText = "It's Newman's turn!";
         newPlayer.playerCharacterTexture = newmanTexture;
-
+        newPlayer.playerIntro = newmanIntroClip;
 
         if (isPlayer1Ready == false)
         {
