@@ -3261,7 +3261,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerImage: {fileID: 1111584795}
   player2Image: {fileID: 0}
-  duration: 3
+  player1Animator: {fileID: 0}
+  player2Animator: {fileID: 0}
 --- !u!1 &938302684
 GameObject:
   m_ObjectHideFlags: 0
@@ -3939,21 +3940,23 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!111 &1111584796
-Animation:
+--- !u!95 &1111584796
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1111584793}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 7400000, guid: ffb699c1946f33d41a16a16710800904, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7c2460a0296ce694b9e6f3e8b4fb00d7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1132660648
 GameObject:
   m_ObjectHideFlags: 0
