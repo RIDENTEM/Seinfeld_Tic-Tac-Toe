@@ -146,8 +146,8 @@ public class ticTacManager : MonoBehaviour
                 winLossObject.gameWon();
             }
         }
-
-        for (rowCount = rowSize - 1, columnCount = 0; rowCount < rowSize; rowCount--, columnCount++)
+        columnCount = 0;
+        for (rowCount = rowSize - 1; rowCount < rowSize; rowCount--, columnCount++)
         {
             if (columnCount != rowSize - 1)
             {
