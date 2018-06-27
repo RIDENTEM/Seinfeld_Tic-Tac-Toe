@@ -116,7 +116,8 @@ public class ticTacManager : MonoBehaviour
                 if (columnCheck != rowSize - 1)
                 {
                     if (tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCheck, columnCheck + 1].GetComponent<ticTacTileScript>().playerSide &&
-                        tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rowCheck, columnCheck + 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
+                        tileArray[rowCheck, columnCheck].GetComponent<ticTacTileScript>().playerSide != Players.None 
+                        && tileArray[rowCheck, columnCheck + 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
                         continue;
                     else
                         break;
@@ -303,15 +304,5 @@ public class ticTacManager : MonoBehaviour
             }
 
         playerMovesToSave.Add(newPlayerMove);
-    }
-
-
-
-
-
-
-
-
-
-
+    } 
 }

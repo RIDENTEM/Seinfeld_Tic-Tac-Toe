@@ -9,6 +9,8 @@ public class entryAnimation : MonoBehaviour
 
     [SerializeField] private RawImage playerImage;
     [SerializeField] private RawImage player2Image;
+    [SerializeField] private GameObject[] tiles;
+
     private Animation player1Anim;
     private Animation player2Anim;
 
@@ -16,6 +18,10 @@ public class entryAnimation : MonoBehaviour
 
     void Start()
     {
+        for(int i = 0; i < tiles.Length; i++)
+        {
+            tiles[i].GetComponent<Animation>().Play();
+        }
         playerImage.texture = ticTacManager.player1.playerCharacterTexture;
         player2Image.texture = ticTacManager.player2.playerCharacterTexture;
 
