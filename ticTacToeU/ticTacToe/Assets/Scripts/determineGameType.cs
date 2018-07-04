@@ -67,7 +67,7 @@ public class determineGameType : MonoBehaviour
 
         if (isPlayer1Ready == false)
         {
-            Debug.Log("Player 1 has selected their character.");
+            Debug.Log("Player 1 has selected Jerry.");
 
             newPlayer.isPlayer1 = true;
             isPlayer1Ready = true;
@@ -75,7 +75,7 @@ public class determineGameType : MonoBehaviour
         }
         else if (isPlayer1Ready == true)
         {
-            Debug.Log("Player 2 has selected their character.");
+            Debug.Log("Player 2 has selected Jerry.");
 
             newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
@@ -94,7 +94,7 @@ public class determineGameType : MonoBehaviour
 
         if (isPlayer1Ready == false)
         {
-            Debug.Log("Player 1 has selected their character.");
+            Debug.Log("Player 1 has selected George.");
 
             isPlayer1Ready = true;
             newPlayer.isPlayer1 = true;
@@ -102,7 +102,7 @@ public class determineGameType : MonoBehaviour
         }
         else if (isPlayer1Ready == true)
         {
-            Debug.Log("Player 2 has selected their character.");
+            Debug.Log("Player 2 has selected George.");
 
             newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
@@ -119,7 +119,7 @@ public class determineGameType : MonoBehaviour
         newPlayer.playerIntro = elaineIntroClip;
         if (isPlayer1Ready == false)
         {
-            Debug.Log("Player 1 has selected their character.");
+            Debug.Log("Player 1 has selected Elaine.");
 
             isPlayer1Ready = true;
             newPlayer.isPlayer1 = true;
@@ -127,7 +127,7 @@ public class determineGameType : MonoBehaviour
         }
         else if (isPlayer1Ready == true)
         {
-            Debug.Log("Player 2 has selected their character.");
+            Debug.Log("Player 2 has selected Elaine.");
 
             newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
@@ -145,7 +145,7 @@ public class determineGameType : MonoBehaviour
 
         if (isPlayer1Ready == false)
         {
-            Debug.Log("Player 1 has selected their character.");
+            Debug.Log("Player 1 has selected Kramer.");
 
             isPlayer1Ready = true;
             newPlayer.isPlayer1 = true;
@@ -153,7 +153,7 @@ public class determineGameType : MonoBehaviour
         }
         else if (isPlayer1Ready == true)
         {
-            Debug.Log("Player 2 has selected their character.");
+            Debug.Log("Player 2 has selected Kramer.");
 
             newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
@@ -171,7 +171,7 @@ public class determineGameType : MonoBehaviour
 
         if (isPlayer1Ready == false)
         {
-            Debug.Log("Player 1 has selected their character.");
+            Debug.Log("Player 1 has selected Newman.");
 
             isPlayer1Ready = true;
             newPlayer.isPlayer1 = true;
@@ -179,7 +179,7 @@ public class determineGameType : MonoBehaviour
         }
         else if (isPlayer1Ready == true)
         {
-            Debug.Log("Player 2 has selected their character.");
+            Debug.Log("Player 2 has selected Newman.");
 
             newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
@@ -211,9 +211,5 @@ public class determineGameType : MonoBehaviour
                 doneButton.SetActive(true);
             }
         }
-        if (ticTacManager.player1 != null)
-            Debug.Log("Player 1 has chosen their fighter");
-        else if (ticTacManager.player2 != null)
-            Debug.Log("Player 2 has chosen their fighter");
-    }
+     }
 }

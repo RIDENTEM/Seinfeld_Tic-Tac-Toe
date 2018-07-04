@@ -13,8 +13,10 @@ public class ticTacTileScript : MonoBehaviour
     ticTacManager gameManager;
 	characterSounds characterSoundObject;
     public ticTacManager.Players playerSide;
+    private Animator thisTileAnimator;
     private void Start()
     {
+        thisTileAnimator = GetComponent<Animator>();
         gameManager = FindObjectOfType<ticTacManager>();
 		characterSoundObject = FindObjectOfType<characterSounds> ();
         thisButton = GetComponent<Button>();
@@ -31,11 +33,13 @@ public class ticTacTileScript : MonoBehaviour
     public void onTileClicked()
     {
         Debug.LogFormat(ticTacManager.currentPlayer.ToString());
+        thisTileAnimator.SetBool("clicked", true);
+        thisTileAnimator.Play("clickAnimation");
+        thisTileAnimator.SetBool("clicked", false);
 
         if (!tileClicked)
         {
 			//Play in/out animation to make it look nice
-			//GetComponent<Animation> ().Play ();
             ///Here is where I will put the animator stuff so I can use more than one animation on each tile
             
             //if its player hearts turn and they press a tile

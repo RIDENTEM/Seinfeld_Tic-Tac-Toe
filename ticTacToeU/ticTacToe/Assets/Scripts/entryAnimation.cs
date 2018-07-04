@@ -8,20 +8,17 @@ public class entryAnimation : MonoBehaviour
 
 
     [SerializeField] private RawImage playerImage;
-    [SerializeField] private RawImage player2Image;
-    [SerializeField] private GameObject[] tiles;
-
+    [SerializeField] private RawImage player2Image; 
     private Animation player1Anim;
     private Animation player2Anim;
-
-
+    private ticTacTileScript[] tileList;
 
     void Start()
     {
-        for(int i = 0; i < tiles.Length; i++)
-        {
-            tiles[i].GetComponent<Animation>().Play();
-        }
+        tileList = (ticTacTileScript[])FindObjectsOfType(typeof(ticTacTileScript));
+
+
+
         playerImage.texture = ticTacManager.player1.playerCharacterTexture;
         player2Image.texture = ticTacManager.player2.playerCharacterTexture;
 
@@ -30,11 +27,24 @@ public class entryAnimation : MonoBehaviour
 
         player1Anim.Play();
         player2Anim.Play();
+        
+    }
 
+    void animationCheck()
+    {
+        foreach(ticTacTileScript tile in tileList)
+        {
+            if(tile.gameObject.GetComponent<Animator>().GetBool("clicked") == true)
+            {
 
-        //   player1Animator.
+                tile.gameObject.GetComponent<Animator>().SetBool("clicked", false);
+            }
+            else
+            {
 
+            }
 
+        }
     }
 
     // Update is called once per frame
