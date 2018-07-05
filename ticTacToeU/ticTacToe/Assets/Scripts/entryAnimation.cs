@@ -34,15 +34,24 @@ public class entryAnimation : MonoBehaviour
     {
         foreach(ticTacTileScript tile in tileList)
         {
-            if(tile.gameObject.GetComponent<Animator>().GetBool("clicked") == true)
+            if(tile.gameObject.GetComponent<Animator>().GetBool("introDone") == false)
             {
-
-                tile.gameObject.GetComponent<Animator>().SetBool("clicked", false);
+                tile.GetComponent<Animator>().Play("fallDownAnimation");
+               // tile.gameObject.GetComponent<Animator>().Play("Idle");
+                tile.gameObject.GetComponent<Animator>().SetBool("introDone", true);
             }
             else
             {
-
+                tile.GetComponent<Animator>().Play("Idle");
             }
+
+            if (tile.GetComponent<Animator>().GetBool("clicked") == true)
+            {
+                tile.GetComponent<Animator>().Play("clickAnimation");
+                tile.GetComponent<Animator>().SetBool("clicked", false);
+            }
+            else
+                tile.GetComponent<Animator>().Play("Idle");
 
         }
     }

@@ -3000,16 +3000,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerImage: {fileID: 1111584795}
   player2Image: {fileID: 1455626890}
-  tiles:
-  - {fileID: 1984324557}
-  - {fileID: 139286256}
-  - {fileID: 1563520004}
-  - {fileID: 45524302}
-  - {fileID: 1625901871}
-  - {fileID: 2112197769}
-  - {fileID: 2094252757}
-  - {fileID: 2088826142}
-  - {fileID: 385626817}
 --- !u!1 &938302684
 GameObject:
   m_ObjectHideFlags: 0
@@ -6261,7 +6251,7 @@ Animator:
   m_GameObject: {fileID: 2112197769}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 637ae8aada57279499946debf91c9184, type: 2}
+  m_Controller: {fileID: 9100000, guid: ed247d61fc572264cafce6a02f9f5b48, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
