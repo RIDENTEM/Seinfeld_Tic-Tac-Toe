@@ -33,15 +33,13 @@ public class ticTacTileScript : MonoBehaviour
     public void onTileClicked()
     {
         Debug.LogFormat(ticTacManager.currentPlayer.ToString());
-        thisTileAnimator.SetBool("clicked", true);
-        thisTileAnimator.Play("clickAnimation");
-        thisTileAnimator.SetBool("clicked", false);
+        //thisTileAnimator.SetBool("clicked", true);
 
         if (!tileClicked)
         {
-			//Play in/out animation to make it look nice
+            //Play in/out animation to make it look nice
             ///Here is where I will put the animator stuff so I can use more than one animation on each tile
-            
+            thisTileAnimator.Play("clickAnimation");
             //if its player hearts turn and they press a tile
             //function to store moves whenever a tile is hit, also finds the index of the current tile in the tiles array
             if (ticTacManager.isNormalGame)
@@ -172,16 +170,9 @@ public class ticTacTileScript : MonoBehaviour
         else
         {
             //play some in/out animation make it look nice
+            thisTileAnimator.Play("activeTilePressAnimation");
         }
-
-       // IEnumerator wait()
-       // {
-       //     yield return new WaitForSeconds(2.0f);
-       // }
-
-        thisButton.interactable = false;
-
-
+      
 
     }
 
