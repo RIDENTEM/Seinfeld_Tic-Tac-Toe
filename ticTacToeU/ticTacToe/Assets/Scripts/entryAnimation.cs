@@ -7,60 +7,46 @@ public class entryAnimation : MonoBehaviour
 {
 
 
-    [SerializeField] private RawImage playerImage;
-    [SerializeField] private RawImage player2Image; 
-    private Animation player1Anim;
-    private Animation player2Anim;
+    [SerializeField] private GameObject player1Image;
+    [SerializeField] private GameObject player2Image;
+    [SerializeField] private AudioSource globalAudioSource;
     private ticTacTileScript[] tileList;
+     
+    
 
     void Start()
     {
         tileList = (ticTacTileScript[])FindObjectsOfType(typeof(ticTacTileScript));
 
-
-
-        playerImage.texture = ticTacManager.player1.playerCharacterTexture;
-        player2Image.texture = ticTacManager.player2.playerCharacterTexture;
-
-        player1Anim = playerImage.GetComponent<Animation>();
-        player2Anim = player2Image.GetComponent<Animation>();
-
-        player1Anim.Play();
-        player2Anim.Play();
         
+        player1Image.GetComponent<RawImage>().texture = ticTacManager.player1.playerCharacterTexture;
+        player2Image.GetComponent<RawImage>().texture = ticTacManager.player2.playerCharacterTexture;
+
+        player1Image.GetComponent<Animation>().Play();
+        player2Image.GetComponent<Animation>().Play();
+
+
+        globalAudioSource.PlayOneShot(ticTacManager.player1.playerIntro);
+        globalAudioSource.PlayOneShot(ticTacManager.player2.playerIntro);
+
+
+
+
     }
 
-    void animationCheck()
-    {
-        foreach(ticTacTileScript tile in tileList)
-        {
-           // if(tile.gameObject.GetComponent<Animator>().GetBool("introDone") == false)
-           // {
-           //     tile.GetComponent<Animator>().Play("fallDownAnimation");
-           //    // tile.gameObject.GetComponent<Animator>().SetBool("introDone", true);
-           // }
-           // else
-           // {
-           //     tile.GetComponent<Animator>().Play("Idle");
-           // }
+    // AudioClip checkClipToPlay()
+    // {
+    //   my goal here is to create a system that will determine which audio clip to play first from each character chosen, but right now I don't have enough clips to make or test this, so i am going to proceed
+    // as if they were all general
+    // }
 
-            if (tile.GetComponent<Animator>().GetBool("clicked") == true)
-            {
-                tile.GetComponent<Animator>().Play("clickAnimation");
-                tile.GetComponent<Animator>().SetBool("clicked", false);
-            }
-           
-        }
-    }
-
-    // Update is called once per frame
+        
     void Update()
     {
-       // animationCheck();
-        if (player1Anim && player2Anim)
-            if (!player1Anim.isPlaying && !player2Anim.isPlaying)
+        if (player1Image.GetComponent<Animation>() && player2Image.GetComponent<Animation>())
+            if (!player1Image.GetComponent<Animation>().isPlaying && !player2Image.GetComponent<Animation>().isPlaying)
             {
-                Destroy(playerImage.gameObject);
+                Destroy(player1Image.gameObject);
                 Destroy(player2Image.gameObject);
                 Destroy(this);
             }

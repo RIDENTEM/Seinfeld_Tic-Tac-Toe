@@ -141,9 +141,9 @@ RectTransform:
   m_Father: {fileID: 238203851}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -250}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -156, y: 6}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &45524304
@@ -3049,8 +3049,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d73f807f57802c145be9c834bfd60bb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerImage: {fileID: 1111584795}
-  player2Image: {fileID: 1455626890}
+  player1Image: {fileID: 1111584793}
+  player2Image: {fileID: 1455626888}
+  globalAudioSource: {fileID: 827251886}
 --- !u!1 &938302684
 GameObject:
   m_ObjectHideFlags: 0
@@ -3687,6 +3688,10 @@ Prefab:
         type: 2}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753792279233240, guid: ba3a8698b282e6943b983cb273f0396a, type: 2}
+      propertyPath: m_Name
+      value: player1Image
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114246179828168614, guid: ba3a8698b282e6943b983cb273f0396a, type: 2}
