@@ -37,8 +37,8 @@ public class ticTacTileScript : MonoBehaviour
 
         if (!tileClicked)
         {
+            characterSoundObject.playCharacterSound(ticTacManager.currentPlayer.playerCharacter);
             //Play in/out animation to make it look nice
-            ///Here is where I will put the animator stuff so I can use more than one animation on each tile
             thisTileAnimator.Play("clickAnimation");
             //if its player hearts turn and they press a tile
             //function to store moves whenever a tile is hit, also finds the index of the current tile in the tiles array

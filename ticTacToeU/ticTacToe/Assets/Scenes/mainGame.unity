@@ -2981,11 +2981,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14a75035b9f5a44a982eedade0f8f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jerrySounds: []
-  georgeSounds: []
-  elaineSounds: []
-  kramerSounds: []
-  newmanSounds: []
+  jerrySounds:
+  - {fileID: 8300000, guid: 6786ff50ac7b5764084cdbb5f35d8da3, type: 3}
+  - {fileID: 8300000, guid: 3fecb24a60470584d90384afb3cedc33, type: 3}
+  - {fileID: 8300000, guid: 64b10b887a59eec4997260722bd21328, type: 3}
+  - {fileID: 8300000, guid: 9c307e195ed4f8649bdeaba375426bcb, type: 3}
+  - {fileID: 8300000, guid: d7b8a7f40d5846f43a4c3305db9f93e1, type: 3}
+  - {fileID: 8300000, guid: d4b3f2c438ca51343aadf3a8801168e3, type: 3}
+  - {fileID: 8300000, guid: 1378712a9a8db1b4fae906898a12125a, type: 3}
+  - {fileID: 8300000, guid: 2fe7e38d3b11c314599cce009a962543, type: 3}
+  - {fileID: 8300000, guid: a553c68864bf7c745b6537ddfcb0c8b7, type: 3}
+  - {fileID: 8300000, guid: 2a7f3e77e8f0f6d43b60c1264d0255f3, type: 3}
+  - {fileID: 8300000, guid: 94a5037c7564d9c45aa58cfada1e2321, type: 3}
+  - {fileID: 8300000, guid: 5dac8706764c6444a92e8fe28d1cbdf4, type: 3}
+  - {fileID: 8300000, guid: 67deb2182765789458dba12dec869ac0, type: 3}
+  - {fileID: 8300000, guid: 5506f1e33203d0e499d9953fa411e634, type: 3}
+  georgeSounds:
+  - {fileID: 8300000, guid: cff20b61d66155a4db208b14764fa536, type: 3}
+  - {fileID: 8300000, guid: 21b49de7c41415349b170650603be41d, type: 3}
+  - {fileID: 8300000, guid: 3f2f7b5313c9153499a04a7937e35d3b, type: 3}
+  - {fileID: 8300000, guid: 12dd754b5e50a3843ad9ee7856ce063e, type: 3}
+  - {fileID: 8300000, guid: 2f0c568db4d82d24aa75e025cade62de, type: 3}
+  - {fileID: 8300000, guid: ddf24a5633d2b6c42bb6f5a519c4e1f3, type: 3}
+  - {fileID: 8300000, guid: c2bb11d88e1f616448ce5c47651b7938, type: 3}
+  - {fileID: 8300000, guid: 7d1ae204d421fef41b976ceeaa106bd8, type: 3}
+  elaineSounds:
+  - {fileID: 8300000, guid: 4043b68ba678f754e9bbf210754020a0, type: 3}
+  - {fileID: 8300000, guid: 010d578fda4c0034f95618d99d0c7a9c, type: 3}
+  - {fileID: 8300000, guid: 1ab806f49d927bc4ab289b7f2a705c2f, type: 3}
+  - {fileID: 8300000, guid: 1f861cdcd95729a49b463eccf7dbfa3e, type: 3}
+  - {fileID: 8300000, guid: e669167f44b2ff146b8117ec8842548a, type: 3}
+  - {fileID: 8300000, guid: e753c28672c9e824eb3bb55fcf948cc3, type: 3}
+  - {fileID: 8300000, guid: bbf363573b2cd6d4ca1d095f7f258fca, type: 3}
+  - {fileID: 8300000, guid: 1a8353e536dc5d048bf9f02a353c699a, type: 3}
+  kramerSounds:
+  - {fileID: 8300000, guid: a888e1d52937b8b409082b6280bdd895, type: 3}
+  - {fileID: 8300000, guid: ddb9c02e699b84245b9337214f229e02, type: 3}
+  - {fileID: 8300000, guid: 0d3b559323a8da14da7e94dcbaf06460, type: 3}
+  - {fileID: 8300000, guid: cefd844d32ee8a34db1d59357af3c904, type: 3}
+  - {fileID: 8300000, guid: 67e8e7a0c0c2f4143b340438419cfb3f, type: 3}
+  - {fileID: 8300000, guid: 7c4d2a6ed195a7440854b8c8d185f5b1, type: 3}
+  - {fileID: 8300000, guid: b058358fd100d0f4f8d5967346e06e8a, type: 3}
+  - {fileID: 8300000, guid: d84f67d365dcd8840af5732d5fbec253, type: 3}
+  - {fileID: 8300000, guid: f81a6b8eb94239e41a61cd5adedf65a7, type: 3}
+  - {fileID: 8300000, guid: f556e3a6c05f3744497f31b216fb612b, type: 3}
+  newmanSounds:
+  - {fileID: 8300000, guid: 7d941ecf01a8b3b4e840abe09e91feab, type: 3}
+  - {fileID: 8300000, guid: fd677dd69615cca4d930d4079c2e59b3, type: 3}
+  - {fileID: 8300000, guid: fb790faec63fa714a819880f15227f45, type: 3}
+  - {fileID: 8300000, guid: fd31525531e255b4fb51dc389fca0455, type: 3}
+  - {fileID: 8300000, guid: 54dfb981b4db4fb4ba0ce76bf4095765, type: 3}
+  - {fileID: 8300000, guid: f364ab524f369714faa64f8cf0880741, type: 3}
+  - {fileID: 8300000, guid: 1fc4c3cdd7d8ce74cbb8cf3c9cfb1aac, type: 3}
+  - {fileID: 8300000, guid: fd562cae7f43d134cba45ac2b9e891b3, type: 3}
+  - {fileID: 8300000, guid: 69f1d7833191b6d428618594bd72b076, type: 3}
+  - {fileID: 8300000, guid: dbd51b0a88ae1224d8ddeecb3aac0781, type: 3}
+  - {fileID: 8300000, guid: ef34b7211ada776498fb31fad0fec7e5, type: 3}
   globalAudioSource: {fileID: 827251886}
 --- !u!114 &827251888
 MonoBehaviour:
