@@ -26,7 +26,10 @@ public class entryAnimation : MonoBehaviour
         player2Image.GetComponent<Animation>().Play();
 
 
+        //Decided to put the code for intros here, since it is pretty much happening at the same time as the intro animation too
         globalAudioSource.PlayOneShot(ticTacManager.player1.playerIntro);
+        //if the first intro is done play the second one
+        if(!globalAudioSource.isPlaying)
         globalAudioSource.PlayOneShot(ticTacManager.player2.playerIntro);
 
 
