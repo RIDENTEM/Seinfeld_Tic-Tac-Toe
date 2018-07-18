@@ -7,19 +7,17 @@ using UnityEngine.UI;
 public class ticTacTileScript : MonoBehaviour
 {
 
-    Button thisButton;
     private RawImage thisButtonImage;
-    bool tileClicked;
-    ticTacManager gameManager;
-	characterSounds characterSoundObject;
+    private bool tileClicked;
+    private ticTacManager gameManager;
+    private characterSounds characterSoundObject;
     public ticTacManager.Players playerSide;
     private Animator thisTileAnimator;
     private void Start()
     {
         thisTileAnimator = GetComponent<Animator>();
         gameManager = FindObjectOfType<ticTacManager>();
-		characterSoundObject = FindObjectOfType<characterSounds> ();
-        thisButton = GetComponent<Button>();
+        characterSoundObject = FindObjectOfType<characterSounds>();
         thisButtonImage = GetComponent<RawImage>();
         tileClicked = false;
         playerSide = ticTacManager.Players.None;
@@ -66,7 +64,7 @@ public class ticTacTileScript : MonoBehaviour
                         if (ticTacManager.currentPlayer.isPlayer1)
                             ticTacManager.currentPlayer = ticTacManager.player2;
                         else if (!ticTacManager.currentPlayer.isPlayer1)
-                            ticTacManager.currentPlayer = ticTacManager.player1; 
+                            ticTacManager.currentPlayer = ticTacManager.player1;
                         //After the check for win, let the player know whose turn it is
                         gameManager.displayPlayerTurn(ticTacManager.currentPlayer);
                         break;
@@ -98,7 +96,7 @@ public class ticTacTileScript : MonoBehaviour
 
                         //set the image of that tile to a heart 
                         if (gameManager)
-                        thisButtonImage.texture = ticTacManager.currentPlayer.playerCharacterTexture;
+                            thisButtonImage.texture = ticTacManager.currentPlayer.playerCharacterTexture;
                         //check for win here instead whenever a spot is clicked 
                         if (ticTacManager.isNormalGame)
                             gameManager.genericWinCheck(3);
@@ -106,11 +104,11 @@ public class ticTacTileScript : MonoBehaviour
                             gameManager.genericWinCheck(4);
                         //set the current player to whoevers turn it is
                         if (ticTacManager.currentPlayer.isPlayer1)
-                        ticTacManager.currentPlayer = ticTacManager.player2;
-                    else if (!ticTacManager.currentPlayer.isPlayer1)
-                        ticTacManager.currentPlayer = ticTacManager.player1;
-                    //After the check for win, let the player know whose turn it is
-                    gameManager.displayPlayerTurn(ticTacManager.currentPlayer);
+                            ticTacManager.currentPlayer = ticTacManager.player2;
+                        else if (!ticTacManager.currentPlayer.isPlayer1)
+                            ticTacManager.currentPlayer = ticTacManager.player1;
+                        //After the check for win, let the player know whose turn it is
+                        gameManager.displayPlayerTurn(ticTacManager.currentPlayer);
                         break;
                     }
 
@@ -172,7 +170,7 @@ public class ticTacTileScript : MonoBehaviour
             //play some in/out animation make it look nice
             thisTileAnimator.Play("activeTilePressAnimation");
         }
-      
+
 
     }
 
