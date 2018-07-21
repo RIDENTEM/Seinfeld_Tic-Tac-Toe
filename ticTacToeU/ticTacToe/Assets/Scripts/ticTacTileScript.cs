@@ -30,7 +30,7 @@ public class ticTacTileScript : MonoBehaviour
 
     public void onTileClicked()
     {
-        Debug.LogFormat(ticTacManager.currentPlayer.ToString());
+      //  Debug.LogFormat(ticTacManager.currentPlayer.ToString());
         //thisTileAnimator.SetBool("clicked", true);
 
         if (!tileClicked)

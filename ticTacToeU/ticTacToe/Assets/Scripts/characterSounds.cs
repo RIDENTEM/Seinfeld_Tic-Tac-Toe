@@ -11,15 +11,16 @@ public class characterSounds : MonoBehaviour
     [SerializeField] private AudioClip[] kramerSounds;
     [SerializeField] private AudioClip[] newmanSounds;
     [SerializeField] private AudioSource globalAudioSource;
-    private List<AudioClip> jerryListOfRemoveableClips;
-    private List<AudioClip> georgeListOfRemoveableClips;
-    private List<AudioClip> elaineListOfRemoveableClips;
-    private List<AudioClip> kramerListOfRemoveableClips;
-    private List<AudioClip> newmanListOfRemoveableClips;
+    private List<AudioClip> jerryListOfRemoveableClips  = new List<AudioClip>();
+    private List<AudioClip> georgeListOfRemoveableClips = new List<AudioClip>();
+    private List<AudioClip> elaineListOfRemoveableClips = new List<AudioClip>();
+    private List<AudioClip> kramerListOfRemoveableClips = new List<AudioClip>();
+    private List<AudioClip> newmanListOfRemoveableClips = new List<AudioClip>();
 
-
+    
     private void Awake()
     {
+
         for (int j = 0; j < jerrySounds.Length; j++)
         {
             jerryListOfRemoveableClips.Add(jerrySounds[j]);
@@ -124,6 +125,15 @@ public class characterSounds : MonoBehaviour
                     break;
                 }
         }
+    }
+    private void Update()
+    {
+        Debug.Log(jerryListOfRemoveableClips.Count);
+        Debug.Log(georgeListOfRemoveableClips.Count);
+        Debug.Log(elaineListOfRemoveableClips.Count);
+        Debug.Log(kramerListOfRemoveableClips.Count);
+        Debug.Log(newmanListOfRemoveableClips.Count);
+
     }
 
 };
