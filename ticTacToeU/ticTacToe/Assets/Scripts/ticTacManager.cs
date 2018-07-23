@@ -126,17 +126,25 @@ public class ticTacManager : MonoBehaviour
 
         int columnCount = 0;
         int rowCount = 0;
+        List<int> tileIndexes = new List<int>();
         //check for win from diagonal where each index x and y are equal to each other
         //new and improved for loop, I didn't even know I could increment two variables at once, so never let it be said I learned nothing at BCC
         for (; rowCount < rowSize; rowCount++, columnCount++)
         {
+
             if (rowCount != rowSize - 1)
             {
                 if (tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCount + 1, columnCount + 1].GetComponent<ticTacTileScript>().playerSide &&
                 tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rowCount + 1, columnCount + 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
+                {
+                    tileIndexes.Add(rowCount);
                     continue;
+                }
                 else
+                {
+                    tileIndexes.Clear();
                     break;
+                }
             }
 
             if (rowCount == rowSize - 1 && tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCount - 1, columnCount - 1].GetComponent<ticTacTileScript>().playerSide &&

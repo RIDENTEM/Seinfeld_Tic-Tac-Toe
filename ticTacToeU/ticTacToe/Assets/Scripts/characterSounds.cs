@@ -128,11 +128,11 @@ public class characterSounds : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(jerryListOfRemoveableClips.Count);
-        Debug.Log(georgeListOfRemoveableClips.Count);
-        Debug.Log(elaineListOfRemoveableClips.Count);
-        Debug.Log(kramerListOfRemoveableClips.Count);
-        Debug.Log(newmanListOfRemoveableClips.Count);
+       // Debug.Log(jerryListOfRemoveableClips.Count);
+       // Debug.Log(georgeListOfRemoveableClips.Count);
+       // Debug.Log(elaineListOfRemoveableClips.Count);
+       // Debug.Log(kramerListOfRemoveableClips.Count);
+       // Debug.Log(newmanListOfRemoveableClips.Count);
 
     }
 
