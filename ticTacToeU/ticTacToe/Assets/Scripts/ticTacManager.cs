@@ -101,7 +101,7 @@ public class ticTacManager : MonoBehaviour
                     columnIndexes.Add(columnCount);
                     //gameWon!
                     Debug.Log("Win for one of the rows");
-                    winLossObject.gameWon(rowIndexes, columnIndexes);
+                    winLossObject.gameWon(rowIndexes, columnIndexes, tileArray);
                 }
                 if (rowCount != rowSize - 1)
                     if (tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCount + 1, columnCount].GetComponent<ticTacTileScript>().playerSide &&
@@ -130,7 +130,7 @@ public class ticTacManager : MonoBehaviour
                     columnIndexes.Add(columnCount);
                     //gameWon!
                     Debug.Log("Win for one of the columns");
-                    winLossObject.gameWon(rowIndexes, columnIndexes);
+                    winLossObject.gameWon(rowIndexes, columnIndexes, tileArray);
                 }
                 if (columnCount != rowSize - 1)
                 {
@@ -181,7 +181,7 @@ public class ticTacManager : MonoBehaviour
                 columnIndexes.Add(columnCount);
                 //gameWon!
                 Debug.Log("Win for the diagonal starting from the left");
-                winLossObject.gameWon(rowIndexes, columnIndexes);
+                winLossObject.gameWon(rowIndexes, columnIndexes, tileArray);
             }
         }
        
@@ -209,7 +209,7 @@ public class ticTacManager : MonoBehaviour
             {
                 //gameWon!
                 Debug.Log("Win for the diagonal starting from the right");
-                winLossObject.gameWon(rowIndexes, columnIndexes);
+                winLossObject.gameWon(rowIndexes, columnIndexes, tileArray);
             }
         }
         if (overallTurnNumber == rowSize * rowSize && gameWon == false)

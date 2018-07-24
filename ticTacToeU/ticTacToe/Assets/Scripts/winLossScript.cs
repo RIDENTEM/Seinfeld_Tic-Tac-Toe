@@ -10,12 +10,25 @@ public class winLossScript : MonoBehaviour
     [SerializeField] Text tieText;
     [SerializeField] Text playerTurnText;
     [SerializeField] GameObject winLossPanel;
+    private LineRenderer winningLine;
 
-
-    public void gameWon(List<int> rowIndexes, List<int> columnIndexes)
+    private void Start()
     {
+        winningLine = GetComponent<LineRenderer>();
+    }
+
+    public void gameWon(List<int> rowIndexes, List<int> columnIndexes, GameObject[,] arrayOfTiles)
+    {
+        Vector3 firstVertex = arrayOfTiles[rowIndexes[0], columnIndexes[0]].gameObject.transform.position;
+        firstVertex.z = 90.0f;
+        Vector3 lastVertex = arrayOfTiles[rowIndexes[rowIndexes.Count - 1], columnIndexes[columnIndexes.Count - 1]].transform.position;
+        lastVertex.z = 90.0f;
+
         Debug.Log(rowIndexes.Count);
         Debug.Log(columnIndexes.Count);
+        winningLine.enabled = true;
+        winningLine.SetPosition(0, firstVertex);
+        winningLine.SetPosition(1, lastVertex);
 		ticTacManager.overallTurnNumber = 0;
         ticTacManager.gameWon = true;
         winLossPanel.SetActive(true);
