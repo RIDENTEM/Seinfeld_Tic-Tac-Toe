@@ -12,8 +12,10 @@ public class winLossScript : MonoBehaviour
     [SerializeField] GameObject winLossPanel;
 
 
-    public void gameWon()
+    public void gameWon(List<int> rowIndexes, List<int> columnIndexes)
     {
+        Debug.Log(rowIndexes.Count);
+        Debug.Log(columnIndexes.Count);
 		ticTacManager.overallTurnNumber = 0;
         ticTacManager.gameWon = true;
         winLossPanel.SetActive(true);
