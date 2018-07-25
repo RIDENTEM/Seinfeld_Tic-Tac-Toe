@@ -91,19 +91,13 @@ public class ticTacManager : MonoBehaviour
         int rowCount = 0;
         //This is a row win
         for (; columnCount < rowSize; columnCount++)
-            for (; rowCount < rowSize; rowCount++)
+            for (rowCount = 0; rowCount < rowSize; rowCount++)
             {
 
-                if (rowCount == rowSize - 1 && tileArray[rowCount - 1, columnCount].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide &&
-                    tileArray[rowCount - 1, columnCount].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide != Players.None)
-                {
-                    rowIndexes.Add(rowCount);
-                    columnIndexes.Add(columnCount);
-                    //gameWon!
-                    Debug.Log("Win for one of the rows");
-                    winLossObject.gameWon(rowIndexes, columnIndexes, tileArray);
-                }
+
                 if (rowCount != rowSize - 1)
+                {
+
                     if (tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCount + 1, columnCount].GetComponent<ticTacTileScript>().playerSide &&
                         tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rowCount + 1, columnCount].GetComponent<ticTacTileScript>().playerSide != Players.None)
                     {
@@ -117,25 +111,27 @@ public class ticTacManager : MonoBehaviour
                         columnIndexes.Clear();
                         break;
                     }
-            }
-
-        //This should be an entire working check for the columns, and if one of the columns is a winner then it will go through the win process
-        for ( rowCount = 0; rowCount < rowSize; rowCount++)
-            for ( columnCount = 0; columnCount < rowSize; columnCount++)
-            {
-                if (columnCount == rowSize - 1 && tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCount, columnCount - 1].GetComponent<ticTacTileScript>().playerSide &&
-          tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rowCount, columnCount - 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
+                }
+                else if (rowCount == rowSize - 1 && tileArray[rowCount - 1, columnCount].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide &&
+                   tileArray[rowCount - 1, columnCount].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide != Players.None)
                 {
                     rowIndexes.Add(rowCount);
                     columnIndexes.Add(columnCount);
                     //gameWon!
-                    Debug.Log("Win for one of the columns");
+                    Debug.Log("Win for one of the rows");
                     winLossObject.gameWon(rowIndexes, columnIndexes, tileArray);
                 }
+            }
+
+        //This should be an entire working check for the columns, and if one of the columns is a winner then it will go through the win process
+        for (rowCount = 0; rowCount < rowSize; rowCount++)
+            for (columnCount = 0; columnCount < rowSize; columnCount++)
+            {
+
                 if (columnCount != rowSize - 1)
                 {
                     if (tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCount, columnCount + 1].GetComponent<ticTacTileScript>().playerSide &&
-                        tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide != Players.None 
+                        tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide != Players.None
                         && tileArray[rowCount, columnCount + 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
                     {
                         rowIndexes.Add(rowCount);
@@ -148,6 +144,15 @@ public class ticTacManager : MonoBehaviour
                         columnIndexes.Clear();
                         break;
                     }
+                }
+                if (columnCount == rowSize - 1 && tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCount, columnCount - 1].GetComponent<ticTacTileScript>().playerSide &&
+         tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rowCount, columnCount - 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
+                {
+                    rowIndexes.Add(rowCount);
+                    columnIndexes.Add(columnCount);
+                    //gameWon!
+                    Debug.Log("Win for one of the columns");
+                    winLossObject.gameWon(rowIndexes, columnIndexes, tileArray);
                 }
             }
 
@@ -184,7 +189,7 @@ public class ticTacManager : MonoBehaviour
                 winLossObject.gameWon(rowIndexes, columnIndexes, tileArray);
             }
         }
-       
+
 
         for (rowCount = rowSize - 1, columnCount = 0; rowCount < rowSize; rowCount--, columnCount++)
         {
@@ -350,5 +355,5 @@ public class ticTacManager : MonoBehaviour
             }
 
         playerMovesToSave.Add(newPlayerMove);
-    } 
+    }
 }
