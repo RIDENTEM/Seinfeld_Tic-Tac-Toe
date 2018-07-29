@@ -25,7 +25,7 @@
 
 				//float4 COLOR //semantic - contains interpolated per - vertex color.
 				//float4 screenPos; // -contains screen space position for reflection or screenspace effects.Note that this is not suitable for GrabPass; you need to compute custom UV yourself using ComputeGrabScreenPos function.
-				//float3 worldPos; // -contains world space position.
+				float3 worldPos; // -contains world space position.
 				//float3 worldRefl; // -contains world reflection vector if surface shader does not write to o.Normal.See Reflect - Diffuse shader for example.
 				//float3 worldNormal; // -contains world normal vector if surface shader does not write to o.Normal.
 				//float3 worldRefl; //INTERNAL_DATA - contains world reflection vector if surface shader writes to o.Normal.To get the reflection vector based on per - pixel normal map, use WorldReflectionVector(IN, o.Normal).See Reflect - Bumped shader for example.
@@ -44,15 +44,24 @@
 				// put more per-instance properties here
 			UNITY_INSTANCING_CBUFFER_END
 
+
 			void surf(Input IN, inout SurfaceOutputStandard o) {
-				
+
+				if (IN.worldPos.x < 0)
+				{
+					_Color.r = 0.2f;
+					_Color.g = 1.0f;
+					_Color.b = 0.7f;
+				}
+
 				// Albedo comes from a texture tinted by color
 				fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
 				o.Albedo = c.rgb;
+
 				// Metallic and smoothness come from slider variables
 				o.Metallic = _Metallic;
 				o.Smoothness = _Glossiness;
-				//these fixed4 float4 variables act as arrays so I can either use a subscript on them or access the rgba values directly, I can choose
+				//these fixed4 / float4 variables act as arrays so I can either use a subscript on them or access the rgba values directly, I can choose
 				o.Alpha = c[3];
 			}
 			ENDCG
