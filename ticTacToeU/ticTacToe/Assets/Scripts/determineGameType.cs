@@ -22,7 +22,12 @@ public class determineGameType : MonoBehaviour
     [SerializeField] private AudioClip newmanIntroClip;
 
     [SerializeField] private Text playerChooseText;
-    [SerializeField] private GameObject[] playerSelectionButtons;
+    [SerializeField] private Button[] playerSelectionButtons;
+    //1 Jerry
+    //2 George
+    //3 Elaine
+    //4 Kramer
+    //5 Newman
     [SerializeField] private GameObject doneButton;
 
     bool isPlayer1Ready = false;
@@ -72,6 +77,8 @@ public class determineGameType : MonoBehaviour
             newPlayer.isPlayer1 = true;
             isPlayer1Ready = true;
             ticTacManager.player1 = newPlayer;
+            //Jerry Button
+            playerSelectionButtons[0].interactable = false;
         }
         else if (isPlayer1Ready == true)
         {
@@ -99,6 +106,8 @@ public class determineGameType : MonoBehaviour
             isPlayer1Ready = true;
             newPlayer.isPlayer1 = true;
             ticTacManager.player1 = newPlayer;
+            //George
+            playerSelectionButtons[1].interactable = false;
         }
         else if (isPlayer1Ready == true)
         {
@@ -124,6 +133,8 @@ public class determineGameType : MonoBehaviour
             isPlayer1Ready = true;
             newPlayer.isPlayer1 = true;
             ticTacManager.player1 = newPlayer;
+            //Elaine
+            playerSelectionButtons[2].interactable = false;
         }
         else if (isPlayer1Ready == true)
         {
@@ -150,6 +161,8 @@ public class determineGameType : MonoBehaviour
             isPlayer1Ready = true;
             newPlayer.isPlayer1 = true;
             ticTacManager.player1 = newPlayer;
+            //Kramer
+            playerSelectionButtons[3].interactable = false;
         }
         else if (isPlayer1Ready == true)
         {
@@ -176,6 +189,9 @@ public class determineGameType : MonoBehaviour
             isPlayer1Ready = true;
             newPlayer.isPlayer1 = true;
             ticTacManager.player1 = newPlayer;
+            //newman
+            playerSelectionButtons[4].interactable = false;
+
         }
         else if (isPlayer1Ready == true)
         {
@@ -204,7 +220,7 @@ public class determineGameType : MonoBehaviour
             {
                 for (int i = 0; i < playerSelectionButtons.Length; i++)
                 {
-                    playerSelectionButtons[i].SetActive(false);
+                    playerSelectionButtons[i].gameObject.SetActive(false);
 
                 }
                 playerChooseText.gameObject.SetActive(false);

@@ -244,11 +244,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &109305710 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1933563772711938, guid: d514a14f552f2e745be8665263773950,
+--- !u!114 &109305713 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114903818251579814, guid: d514a14f552f2e745be8665263773950,
     type: 2}
   m_PrefabInternal: {fileID: 1866183538}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &293651892
 Prefab:
   m_ObjectHideFlags: 0
@@ -1891,21 +1892,24 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224100568076873062, guid: d514a14f552f2e745be8665263773950,
     type: 2}
   m_PrefabInternal: {fileID: 1012061807}
---- !u!1 &1223018183 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1933563772711938, guid: d514a14f552f2e745be8665263773950,
+--- !u!114 &1223018186 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114903818251579814, guid: d514a14f552f2e745be8665263773950,
     type: 2}
   m_PrefabInternal: {fileID: 552257636}
---- !u!1 &1227709032 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1933563772711938, guid: d514a14f552f2e745be8665263773950,
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1227709035 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114903818251579814, guid: d514a14f552f2e745be8665263773950,
     type: 2}
   m_PrefabInternal: {fileID: 434430402}
---- !u!1 &1333961978 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1933563772711938, guid: d514a14f552f2e745be8665263773950,
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1333961981 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114903818251579814, guid: d514a14f552f2e745be8665263773950,
     type: 2}
   m_PrefabInternal: {fileID: 2039156420}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1357520649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2056,11 +2060,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1491212458}
---- !u!1 &1539105111 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1933563772711938, guid: d514a14f552f2e745be8665263773950,
+--- !u!114 &1539105114 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114903818251579814, guid: d514a14f552f2e745be8665263773950,
     type: 2}
   m_PrefabInternal: {fileID: 1702390644}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1629281197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2649,6 +2654,21 @@ Prefab:
       propertyPath: m_Colors.m_PressedColor.b
       value: 0.6544118
       objectReference: {fileID: 0}
+    - target: {fileID: 114903818251579814, guid: d514a14f552f2e745be8665263773950,
+        type: 2}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.42647058
+      objectReference: {fileID: 0}
+    - target: {fileID: 114903818251579814, guid: d514a14f552f2e745be8665263773950,
+        type: 2}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.42647058
+      objectReference: {fileID: 0}
+    - target: {fileID: 114903818251579814, guid: d514a14f552f2e745be8665263773950,
+        type: 2}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0.42647058
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d514a14f552f2e745be8665263773950, type: 2}
   m_IsPrefabParent: 0
@@ -2699,11 +2719,11 @@ MonoBehaviour:
   newmanIntroClip: {fileID: 0}
   playerChooseText: {fileID: 1357520651}
   playerSelectionButtons:
-  - {fileID: 109305710}
-  - {fileID: 1227709032}
-  - {fileID: 1539105111}
-  - {fileID: 1333961978}
-  - {fileID: 1223018183}
+  - {fileID: 109305713}
+  - {fileID: 1227709035}
+  - {fileID: 1539105114}
+  - {fileID: 1333961981}
+  - {fileID: 1223018186}
   doneButton: {fileID: 1012061808}
 --- !u!4 &1997915702
 Transform:

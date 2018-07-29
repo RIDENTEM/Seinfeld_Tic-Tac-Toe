@@ -212,6 +212,8 @@ public class ticTacManager : MonoBehaviour
             if (columnCount == rowSize - 1 && tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide == tileArray[rowCount + 1, columnCount - 1].GetComponent<ticTacTileScript>().playerSide &&
           tileArray[rowCount, columnCount].GetComponent<ticTacTileScript>().playerSide != Players.None && tileArray[rowCount + 1, columnCount - 1].GetComponent<ticTacTileScript>().playerSide != Players.None)
             {
+                rowIndexes.Add(rowCount);
+                columnIndexes.Add(columnCount);
                 //gameWon!
                 Debug.Log("Win for the diagonal starting from the right");
                 winLossObject.gameWon(rowIndexes, columnIndexes, tileArray);
