@@ -2712,7 +2712,7 @@ MonoBehaviour:
   elaineTexture: {fileID: 2800000, guid: 2acd86fe485725644a63b0c25ba95e6e, type: 3}
   kramerTexture: {fileID: 2800000, guid: 3a38bd527cfe83345ab1824021e96f4b, type: 3}
   newmanTexture: {fileID: 2800000, guid: 93cd32a466be31842bbf8158beffb310, type: 3}
-  jerryIntroClip: {fileID: 0}
+  jerryIntroClip: {fileID: 8300000, guid: c268746992fb23f4ebfed123a67b5a05, type: 3}
   georgeIntroClip: {fileID: 8300000, guid: 451cab4056cf54045b9e21e41c27e054, type: 3}
   elaineIntroClip: {fileID: 0}
   kramerIntroClip: {fileID: 0}

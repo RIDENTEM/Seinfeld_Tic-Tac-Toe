@@ -9,31 +9,16 @@ public class entryAnimation : MonoBehaviour
     [SerializeField] private GameObject player1Image;
     [SerializeField] private GameObject player2Image;
     [SerializeField] private AudioSource globalAudioSource;
-    private ticTacTileScript[] tileList;
-     
-    
 
     void Start()
     {
-        tileList = (ticTacTileScript[])FindObjectsOfType(typeof(ticTacTileScript));
-
-        
         player1Image.GetComponent<RawImage>().texture = ticTacManager.player1.playerCharacterTexture;
         player2Image.GetComponent<RawImage>().texture = ticTacManager.player2.playerCharacterTexture;
 
         player1Image.GetComponent<Animation>().Play();
         player2Image.GetComponent<Animation>().Play();
 
-
-        //Decided to put the code for intros here, since it is pretty much happening at the same time as the intro animation too
-        globalAudioSource.PlayOneShot(ticTacManager.player1.playerIntro);
-        //if the first intro is done play the second one
-        if(!globalAudioSource.isPlaying)
-        globalAudioSource.PlayOneShot(ticTacManager.player2.playerIntro);
-
-
-
-
+        StartCoroutine(playIntros());
     }
 
     // AudioClip checkClipToPlay()
@@ -42,15 +27,13 @@ public class entryAnimation : MonoBehaviour
     // as if they were all general
     // }
 
-        
-    void Update()
+    IEnumerator playIntros()
     {
-        if (player1Image.GetComponent<Animation>() && player2Image.GetComponent<Animation>())
-            if (!player1Image.GetComponent<Animation>().isPlaying && !player2Image.GetComponent<Animation>().isPlaying)
-            {
-                Destroy(player1Image.gameObject);
-                Destroy(player2Image.gameObject);
-                Destroy(this);
-            }
+        globalAudioSource.PlayOneShot(ticTacManager.player1.playerIntro);
+        yield return new WaitForSeconds(ticTacManager.player1.playerIntro.length);
+        globalAudioSource.PlayOneShot(ticTacManager.player2.playerIntro);
+
     }
+
+
 }
