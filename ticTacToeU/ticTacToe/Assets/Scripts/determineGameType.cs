@@ -75,9 +75,9 @@ public class determineGameType : MonoBehaviour
         characterSelection.SetActive(true);
     }
 
-    
 
-    public void onCharacterSelectionDone()
+
+    private void onCharacterSelectionDone()
     {
 
         characterSelection.SetActive(false);
@@ -110,6 +110,7 @@ public class determineGameType : MonoBehaviour
             newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
             isPlayer2Ready = true;
+            onCharacterSelectionDone();
         }
 
 
@@ -139,6 +140,7 @@ public class determineGameType : MonoBehaviour
             newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
             isPlayer2Ready = true;
+            onCharacterSelectionDone();
 
         }
     }
@@ -166,6 +168,7 @@ public class determineGameType : MonoBehaviour
             newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
             isPlayer2Ready = true;
+            onCharacterSelectionDone();
 
         }
     }
@@ -194,6 +197,7 @@ public class determineGameType : MonoBehaviour
             newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
             isPlayer2Ready = true;
+            onCharacterSelectionDone();
 
         }
     }
@@ -223,6 +227,7 @@ public class determineGameType : MonoBehaviour
             newPlayer.isPlayer1 = false;
             ticTacManager.player2 = newPlayer;
             isPlayer2Ready = true;
+            onCharacterSelectionDone();
 
         }
     }
@@ -250,5 +255,5 @@ public class determineGameType : MonoBehaviour
                 doneButton.SetActive(true);
             }
         }
-     }
+    }
 }
