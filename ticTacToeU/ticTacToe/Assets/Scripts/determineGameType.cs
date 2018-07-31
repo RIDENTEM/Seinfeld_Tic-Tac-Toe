@@ -23,6 +23,9 @@ public class determineGameType : MonoBehaviour
 
     [SerializeField] private Text playerChooseText;
     [SerializeField] private Button[] playerSelectionButtons;
+    [SerializeField] private Button creditsButton;
+    [SerializeField] private GameObject creditsPanel;
+
     //1 Jerry
     //2 George
     //3 Elaine
@@ -33,6 +36,24 @@ public class determineGameType : MonoBehaviour
     bool isPlayer1Ready = false;
     bool isPlayer2Ready = false;
 
+
+    private void Start()
+    {
+        creditsButton.onClick.AddListener(onCreditsButtonClick);
+
+    }
+
+    private void onCreditsButtonClick()
+    {
+        mainMenu.SetActive(false);
+        creditsPanel.SetActive(true);
+    }
+
+    public void onBackButtonClick()
+    {
+        mainMenu.SetActive(true);
+        creditsPanel.SetActive(false);
+    }
 
     public void gameType3x3()
     {
@@ -53,6 +74,8 @@ public class determineGameType : MonoBehaviour
         mainMenu.SetActive(false);
         characterSelection.SetActive(true);
     }
+
+    
 
     public void onCharacterSelectionDone()
     {
